@@ -1,0 +1,6 @@
+*.csproj
+*.sln
+Ataraxia/Library/metadata/00/00000000000000001000000000000000
+Ataraxia/Library/
+Ataraxia/Temp/
+*.unityproj

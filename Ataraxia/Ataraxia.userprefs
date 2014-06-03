@@ -1,0 +1,15 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Level\LoadingScreen.cs">
+    <Files>
+      <File FileName="Assets\Scripts\Level\LevelLoader.cs" Line="45" Column="23" />
+      <File FileName="Assets\Scripts\Level\StartScene.cs" Line="8" Column="50" />
+      <File FileName="Assets\Scripts\Level\Menu.cs" Line="8" Column="56" />
+      <File FileName="Assets\Scripts\Level\LoadingScreen.cs" Line="8" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
