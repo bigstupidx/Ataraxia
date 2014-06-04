@@ -8,13 +8,10 @@ public class CharacterMoveToPoint : MonoBehaviour
 	[SerializeField]
 	private Transform myTransform;
 	[SerializeField]
-	private Transform target;
-	[SerializeField]
 	private float velocity = 20f;
 	[SerializeField]
 	private float proximity = 0.25f;
-	private bool move = false;
-	private bool canRotate = false;
+	private Transform target;
 	private Vector3 direction;
 
 	private float SqrtDist
@@ -22,11 +19,19 @@ public class CharacterMoveToPoint : MonoBehaviour
 		get { return (myTransform.position - target.position).sqrMagnitude; }
 	}
 
+	public void MoveTo(Transform target)
+	{
+		this.target = target;
+	}
+
 	private void Update () 
 	{
-		direction = GetDirection ();
-		direction.Normalize ();
-		MoveToTarget ();
+		if(target != null)
+		{
+			direction = GetDirection ();
+			direction.Normalize ();
+			MoveToTarget ();
+		}
 	}
 
 	private void MoveToTarget ()
