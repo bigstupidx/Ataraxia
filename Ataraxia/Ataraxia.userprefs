@@ -1,9 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CharacterScripts/CharacterMoveToPoint.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\UI\UIMessage.cs">
     <Files>
-      <File FileName="Assets/Scripts/CharacterScripts/CharacterGravity.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/CharacterScripts/CharacterMoveToPoint.cs" Line="14" Column="2" />
+      <File FileName="Assets\Scripts\UI\UIMessage.cs" Line="21" Column="20" />
+      <File FileName="Assets\Scripts\Level\Menu.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\General\MarkArea.cs" Line="7" Column="22" />
+      <File FileName="Assets\Scripts\UI\Controls\AtaraxiaText.cs" Line="12" Column="17" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
