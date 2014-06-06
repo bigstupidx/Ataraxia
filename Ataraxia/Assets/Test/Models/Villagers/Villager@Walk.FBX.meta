@@ -1,0 +1,163 @@
+fileFormatVersion: 2
+guid: 518d1f55a19254916940d8ffb0410010
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Bip001
+    100004: Bip001 Head
+    100006: Bip001 L Calf
+    100008: Bip001 L Clavicle
+    100010: Bip001 L Finger0
+    100012: Bip001 L Finger1
+    100014: Bip001 L Foot
+    100016: Bip001 L Forearm
+    100018: Bip001 L Hand
+    100020: Bip001 L Thigh
+    100022: Bip001 L Toe0
+    100024: Bip001 L UpperArm
+    100026: Bip001 Neck
+    100028: Bip001 Pelvis
+    100030: Bip001 R Calf
+    100032: Bip001 R Clavicle
+    100034: Bip001 R Finger0
+    100036: Bip001 R Finger1
+    100038: Bip001 R Foot
+    100040: Bip001 R Forearm
+    100042: Bip001 R Hand
+    100044: Bip001 R Thigh
+    100046: Bip001 R Toe0
+    100048: Bip001 R UpperArm
+    100050: Bip001 Spine
+    100052: Villager Bip
+    100054: Villager Bip Head
+    100056: Villager Bip L Calf
+    100058: Villager Bip L Clavicle
+    100060: Villager Bip L Finger0
+    100062: Villager Bip L Finger1
+    100064: Villager Bip L Foot
+    100066: Villager Bip L Forearm
+    100068: Villager Bip L Hand
+    100070: Villager Bip L Thigh
+    100072: Villager Bip L Toe0
+    100074: Villager Bip L UpperArm
+    100076: Villager Bip Neck
+    100078: Villager Bip Pelvis
+    100080: Villager Bip R Calf
+    100082: Villager Bip R Clavicle
+    100084: Villager Bip R Finger0
+    100086: Villager Bip R Finger1
+    100088: Villager Bip R Foot
+    100090: Villager Bip R Forearm
+    100092: Villager Bip R Hand
+    100094: Villager Bip R Thigh
+    100096: Villager Bip R Toe0
+    100098: Villager Bip R UpperArm
+    100100: Villager Bip Spine
+    400000: //RootNode
+    400002: Bip001
+    400004: Bip001 Head
+    400006: Bip001 L Calf
+    400008: Bip001 L Clavicle
+    400010: Bip001 L Finger0
+    400012: Bip001 L Finger1
+    400014: Bip001 L Foot
+    400016: Bip001 L Forearm
+    400018: Bip001 L Hand
+    400020: Bip001 L Thigh
+    400022: Bip001 L Toe0
+    400024: Bip001 L UpperArm
+    400026: Bip001 Neck
+    400028: Bip001 Pelvis
+    400030: Bip001 R Calf
+    400032: Bip001 R Clavicle
+    400034: Bip001 R Finger0
+    400036: Bip001 R Finger1
+    400038: Bip001 R Foot
+    400040: Bip001 R Forearm
+    400042: Bip001 R Hand
+    400044: Bip001 R Thigh
+    400046: Bip001 R Toe0
+    400048: Bip001 R UpperArm
+    400050: Bip001 Spine
+    400052: Villager Bip
+    400054: Villager Bip Head
+    400056: Villager Bip L Calf
+    400058: Villager Bip L Clavicle
+    400060: Villager Bip L Finger0
+    400062: Villager Bip L Finger1
+    400064: Villager Bip L Foot
+    400066: Villager Bip L Forearm
+    400068: Villager Bip L Hand
+    400070: Villager Bip L Thigh
+    400072: Villager Bip L Toe0
+    400074: Villager Bip L UpperArm
+    400076: Villager Bip Neck
+    400078: Villager Bip Pelvis
+    400080: Villager Bip R Calf
+    400082: Villager Bip R Clavicle
+    400084: Villager Bip R Finger0
+    400086: Villager Bip R Finger1
+    400088: Villager Bip R Foot
+    400090: Villager Bip R Forearm
+    400092: Villager Bip R Hand
+    400094: Villager Bip R Thigh
+    400096: Villager Bip R Toe0
+    400098: Villager Bip R UpperArm
+    400100: Villager Bip Spine
+    7400000: Take 001
+    9500000: //RootNode
+    11100000: //RootNode
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 2
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 1
+  userData: 
