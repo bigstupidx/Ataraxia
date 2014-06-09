@@ -1,15 +1,20 @@
 using UnityEngine;
 using System.Collections;
 
-public class CharacterGravity : MonoBehaviour 
+public class CharacterGravity : CharacterBehaviour
 {
 	[SerializeField]
 	private float gravity = 20.0F;
-	[SerializeField]
 	private CharacterController characterController;
 	private Vector3 moveDirection = Vector3.zero;
-	
-	private void Update () 
+
+
+	public override void SetCharacterController (CharacterController characterController)
+	{
+		this.characterController = characterController;
+	}
+
+	public override void Execute () 
 	{
 		if (!characterController.isGrounded)
 		{

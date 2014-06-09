@@ -1,10 +1,8 @@
 using UnityEngine;
 using System.Collections;
 
-public class CharacterMoveToPoint : MonoBehaviour 
+public class CharacterMoveToPoint : CharacterBehaviour
 {
-	[SerializeField]
-	private CharacterController characterController;
 	[SerializeField]
 	private Transform myTransform;
 	[SerializeField]
@@ -13,6 +11,17 @@ public class CharacterMoveToPoint : MonoBehaviour
 	private float proximity = 0.25f;
 	private Transform target;
 	private Vector3 direction;
+	private CharacterController characterController;
+
+	public bool HasArrivedToTargetPoint 
+	{
+		get
+		{ 
+			if( target == null)
+				return true;
+			return SqrtDist <= proximity; 
+		}
+	}
 
 	private float SqrtDist
 	{
@@ -24,7 +33,7 @@ public class CharacterMoveToPoint : MonoBehaviour
 		this.target = target;
 	}
 
-	private void Update () 
+	public override void Execute () 
 	{
 		if(target != null)
 		{
@@ -34,19 +43,29 @@ public class CharacterMoveToPoint : MonoBehaviour
 		}
 	}
 
+	public override void SetCharacterController (CharacterController characterController)
+	{
+		this.characterController = characterController;
+	}
+
 	private void MoveToTarget ()
 	{
-		if (SqrtDist > proximity) 
+		if (!HasArrivedToTargetPoint)
 		{
-			myTransform.LookAt (GetTargetPosition ());
-			myTransform.eulerAngles = new Vector3 (0, myTransform.eulerAngles.y, 0);
+			LookAt (direction);
 			characterController.SimpleMove (direction * velocity);
 		}
 	}
 
-	private Vector3 GetTargetPosition ()
+	public void LookAt (Vector3 lookAtPosition)
 	{
-		return myTransform.position + direction * velocity * Time.deltaTime;
+		myTransform.LookAt (GetTargetPosition (lookAtPosition));
+		myTransform.eulerAngles = new Vector3 (0, myTransform.eulerAngles.y, 0);
+	}
+
+	private Vector3 GetTargetPosition (Vector3 lookAtPosition)
+	{
+		return myTransform.position + lookAtPosition * velocity * Time.deltaTime;
 	}
 
 	private Vector3 GetDirection ()

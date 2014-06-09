@@ -1,11 +1,33 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Menu : MonoBehaviour 
 {
-	private void OnGUI ()
+	public Level level;
+	public UIDialogMessage dialogMessage;
+	[SerializeField]
+	private List<Character> characters;
+
+	public static Menu Instance
 	{
-		if(GUI.Button(new Rect(0F,0F,120F,25F), "Load Level 1"))
-			LevelLoader.Instance.LoadScene(LevelLoader.LEVEL_1);
+		get;
+		private set;
+	}
+
+	public Character GetCharacterByType (CharacterType type)
+	{
+		foreach(Character character in characters)
+		{
+			if(character.characterType == type)
+				return character;
+		}
+		return null;
+	}
+
+	private void Awake ()
+	{
+		if(Instance == null)
+			Instance = this;
 	}
 }

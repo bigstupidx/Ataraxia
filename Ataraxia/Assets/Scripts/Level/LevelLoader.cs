@@ -4,7 +4,7 @@ using System.Collections;
 public class LevelLoader : MonoBehaviour
 {
 	public const string MENU = "Menu";
-	public const string LEVEL_1 = "Level1";
+	public const string LEVEL_1 = "Portal 1 - Love";
 	private const string LOADING_SCREEN = "LoadingScreen";
 	private string PendingScene
 	{
