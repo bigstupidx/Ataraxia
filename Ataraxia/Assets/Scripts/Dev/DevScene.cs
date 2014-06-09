@@ -19,6 +19,38 @@ public class DevScene : MonoBehaviour
 			GoToPrevBox ();
 	}
 
+	private void Update ()
+	{
+		if(Helpers.IsDeviceMobile)
+			MoveWithTouch ();
+		else
+			MoveWithMouse ();
+	}
+
+	private void MoveWithTouch ()
+	{
+		if(Input.touchCount > 0)
+		{
+			Touch touch = Input.GetTouch(0);
+			Ray ray = Camera.main.ScreenPointToRay (touch.position);
+			RaycastHit hit;
+			if (Physics.Raycast (ray, out hit))
+				character.MoveTo (hit.point);
+		}
+
+	}
+
+	private void MoveWithMouse ()
+	{
+		if (Input.GetMouseButtonDown (0)) 
+		{
+			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+			RaycastHit hit;
+			if (Physics.Raycast (ray, out hit))
+				character.MoveTo (hit.point);
+		}
+	}
+
 	private void GoToNextBox ()
 	{
 		if(currentBox == -1)

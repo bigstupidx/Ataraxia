@@ -9,7 +9,7 @@ public class CharacterMoveToPoint : CharacterBehaviour
 	private float velocity = 20f;
 	[SerializeField]
 	private float proximity = 0.25f;
-	private Transform target;
+	private Vector3 target = Vector3.zero;
 	private Vector3 direction;
 	private CharacterController characterController;
 
@@ -17,7 +17,7 @@ public class CharacterMoveToPoint : CharacterBehaviour
 	{
 		get
 		{ 
-			if( target == null)
+			if( target == Vector3.zero )
 				return true;
 			return SqrtDist <= proximity; 
 		}
@@ -25,17 +25,27 @@ public class CharacterMoveToPoint : CharacterBehaviour
 
 	private float SqrtDist
 	{
-		get { return (myTransform.position - target.position).sqrMagnitude; }
+		get { return (myTransform.position - target).sqrMagnitude; }
+	}
+
+	public void SetPosition ( Vector3 position )
+	{
+		this.myTransform.localPosition = position;
 	}
 
 	public void MoveTo(Transform target)
+	{
+		MoveTo(target.position);
+	}
+
+	public void MoveTo(Vector3 target)
 	{
 		this.target = target;
 	}
 
 	public override void Execute () 
 	{
-		if(target != null)
+		if(target != Vector3.zero)
 		{
 			direction = GetDirection ();
 			direction.Normalize ();
@@ -70,7 +80,7 @@ public class CharacterMoveToPoint : CharacterBehaviour
 
 	private Vector3 GetDirection ()
 	{
-		Vector3 newDirection = target.position - myTransform.position;
+		Vector3 newDirection = target - myTransform.position;
 		return newDirection;
 	}
 }
