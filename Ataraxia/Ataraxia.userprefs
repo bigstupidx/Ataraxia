@@ -1,10 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Dev/DevScene.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Dice/Dice.cs">
     <Files>
       <File FileName="Assets/Scripts/Dev/DevScene.cs" Line="36" Column="19" />
       <File FileName="Assets/Scripts/CharacterScripts/CharacterMoveToPoint.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Utils/Helpers.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Dice/Dice.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
