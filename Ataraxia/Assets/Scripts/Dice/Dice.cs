@@ -1,70 +1,80 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
-public class Dice : MonoBehaviour 
+public class Dice: MonoBehaviour 
 {
 	[SerializeField]
-	private float velocity;
-	public bool activate = false;
-	public float maxPos = 1.0f;
-	public int maxTime = 3;
-	public bool activeDice = false;
-	private Vector3 initPos;
-	private Quaternion initRot;
+	private bool canRotate = false;
+	[SerializeField]
 	private Transform myTransform;
+	[SerializeField]
+	private float delayToChangeRotation  = 0.5F;
+	[SerializeField]
+	private float velocity = 10F;
+	[SerializeField]
+	private Vector3 [] diceValue;
+	private float timeToChangeDirection;
+	private Vector3 directionPoint = Vector3.one;
+	private Quaternion currentRotation = new Quaternion ();
 
-	public int Value 
+	public int Value
 	{
 		get;
-		set;
+		private set;
+	}	
+
+	private void Start ()
+	{
+		GetNewDirectionPoint ();
 	}
 
-	private void Start()
-	{
-		myTransform = transform;
-		initRot = Quaternion.identity;
-		initPos = transform.localPosition;
-	}
-	
 	private void Update () 
-	{	
-		Debug.Log(Value);
-		if(!activate)
-			return;
-		
-		Throw ();
+	{
+		if (canRotate)
+			Rotate ();
+		else
+			myTransform.rotation = Quaternion.Slerp(myTransform.rotation,currentRotation,Time.deltaTime * velocity);
 	}
 
-	private void Throw ()
+	private void Rotate ()
 	{
-		myTransform.RotateAroundLocal (Vector3.up, Random.Range (200, 300) * Time.deltaTime * velocity);
-		myTransform.RotateAroundLocal (Vector3.forward, Random.Range (200, 300) * Time.deltaTime * velocity);
-		myTransform.RotateAroundLocal (Vector3.left, Random.Range (200, 300) * Time.deltaTime * velocity);
-	}
-	
-	private void OnMouseDown() 
-	{	
-		if(!activeDice)
-			return;
-		
-		activeDice = false;
-		Move ();
-		activate = true;
-		Invoke("Fall",Random.Range(1,3));
+		Vector3 direction = GetAxisDirection ();
+		myTransform.Rotate (velocity * direction.x, velocity * direction.y, velocity * direction.z);
 	}
 
-	private void Move ()
+	private Vector3 GetAxisDirection ()
 	{
-		Vector3 newRot = new Vector3 (Random.Range (0, 360), Random.Range (0, 360), Random.Range (0, 360));
-		myTransform.rigidbody.useGravity = false;
-		myTransform.localPosition = initPos;
-		myTransform.localRotation = initRot;
-		myTransform.localRotation = Quaternion.Euler (newRot);
+		if(Time.realtimeSinceStartup > timeToChangeDirection)
+			GetNewDirectionPoint ();
+		return directionPoint;
 	}
-	
-	private void Fall()
+
+	private void GetNewDirectionPoint ()
 	{
-		activate = activeDice = false;
-		myTransform.rigidbody.useGravity = true;
+		directionPoint = new Vector3 (GetValueToDirectionPoint (), GetValueToDirectionPoint (), GetValueToDirectionPoint ());
+		timeToChangeDirection = Time.realtimeSinceStartup + delayToChangeRotation;
+	}
+
+	private float GetValueToDirectionPoint ()
+	{
+		float number = Random.value;
+		if(number > 0.5F) return 1.0F;
+		return -1.0F;
+	}
+
+	private void StopDice ()
+	{
+		canRotate = false;
+		Value = Random.Range(1,6);
+		currentRotation.eulerAngles = diceValue [ Value - 1];
+	}
+
+	private void OnGUI ()
+	{
+		if(GUI.Button(new Rect(0F,0F,150F,25F),"Throw Dice"))
+			canRotate = true;
+
+		if(GUI.Button(new Rect(0F,50F,150F,25F),"Stop Dice"))
+			StopDice ();
 	}
 }
