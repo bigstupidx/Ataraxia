@@ -14,8 +14,6 @@ public class Helpers
 		{
 			return (
 				Application.platform == RuntimePlatform.Android || 
-			   	Application.platform == RuntimePlatform.BB10Player || 
-			   	Application.platform == RuntimePlatform.BlackBerryPlayer ||
 			   	Application.platform == RuntimePlatform.IPhonePlayer ||
 			   	Application.platform == RuntimePlatform.WP8Player
 			);

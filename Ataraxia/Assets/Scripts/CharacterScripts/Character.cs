@@ -8,12 +8,39 @@ public class Character : MonoBehaviour
 	private CharacterController characterController;
 	[SerializeField]
 	private Transform myTransform;
+	[SerializeField]
+	private CharacterMoveToPoint character;
 	private CharacterBehaviour [] behaviours;
+	private ICharacterMoveInput characerMoveByInput;
+
+	public Vector3 Position
+	{
+		get { return myTransform.position; }
+	}
+
+	public bool HasGetArrive
+	{
+		get{ return character.HasArrivedToTargetPoint;}
+	}
 
 	private void Start ()
 	{
 		myTransform = transform;
 		HandleCharacterController ();
+		GetControlInputToMove ();
+	}
+
+	private void GetControlInputToMove ()
+	{
+		characerMoveByInput = GetInputToMove (character);
+	}
+
+	private ICharacterMoveInput GetInputToMove (CharacterMoveToPoint character)
+	{
+		if(Helpers.IsDeviceMobile)
+			return new CharacterMoveByTouch (character,Camera.main);
+		else
+			return new CharacterMoveByMouse (character,Camera.main);
 	}
 
 	private void HandleCharacterController ()
@@ -30,18 +57,14 @@ public class Character : MonoBehaviour
 
 	public void MoveTo ( Transform position )
 	{
-		foreach(CharacterBehaviour behaviour in behaviours)
-		{
-			if(behaviour is CharacterMoveToPoint)
-			{
-				CharacterMoveToPoint behaviourMove = behaviour as CharacterMoveToPoint;
-				behaviourMove.MoveTo(position);
-			}
-		}
+		character.MoveTo(position);
 	}
 
 	private void Update ()
 	{
+		if(characerMoveByInput != null)
+			characerMoveByInput.Move ();
+
 		foreach(CharacterBehaviour behaviour in behaviours)
 			behaviour.Execute ();
 	}

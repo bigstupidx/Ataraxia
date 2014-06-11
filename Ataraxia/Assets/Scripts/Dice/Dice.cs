@@ -21,7 +21,24 @@ public class Dice: MonoBehaviour
 	{
 		get;
 		private set;
-	}	
+	}
+
+	public void Position ( Vector3 position)
+	{
+		myTransform.position = position;
+	}
+
+	public void Throw ()
+	{
+		canRotate = true;
+	}
+
+	public void Stop ()
+	{
+		canRotate = false;
+		Value = Random.Range(1,6);
+		currentRotation.eulerAngles = diceValue [ Value - 1];
+	}
 
 	private void Start ()
 	{
@@ -60,21 +77,5 @@ public class Dice: MonoBehaviour
 		float number = Random.value;
 		if(number > 0.5F) return 1.0F;
 		return -1.0F;
-	}
-
-	private void StopDice ()
-	{
-		canRotate = false;
-		Value = Random.Range(1,6);
-		currentRotation.eulerAngles = diceValue [ Value - 1];
-	}
-
-	private void OnGUI ()
-	{
-		if(GUI.Button(new Rect(0F,0F,150F,25F),"Throw Dice"))
-			canRotate = true;
-
-		if(GUI.Button(new Rect(0F,50F,150F,25F),"Stop Dice"))
-			StopDice ();
 	}
 }
