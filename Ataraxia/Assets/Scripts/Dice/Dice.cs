@@ -16,6 +16,7 @@ public class Dice: MonoBehaviour
 	private float timeToChangeDirection;
 	private Vector3 directionPoint = Vector3.one;
 	private Quaternion currentRotation = new Quaternion ();
+	private Vector3 initialScale;
 
 	public int Value
 	{
@@ -33,6 +34,16 @@ public class Dice: MonoBehaviour
 		canRotate = true;
 	}
 
+	public void Hide ()
+	{
+		myTransform.localScale = Vector3.zero;
+	}
+
+	public void Show ()
+	{
+		myTransform.localScale = initialScale;
+	}
+
 	public void Stop ()
 	{
 		canRotate = false;
@@ -42,6 +53,7 @@ public class Dice: MonoBehaviour
 
 	private void Start ()
 	{
+		initialScale = myTransform.localScale;
 		GetNewDirectionPoint ();
 	}
 

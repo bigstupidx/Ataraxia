@@ -14,7 +14,13 @@ public class Board : MonoBehaviour
 	private List<Square> squares = new List<Square>();
 	private int currentIndexSquare = 0;
 	private List<Square> squaresToSteps;
-	
+	private GameState gameState = GameState.StartingTurn;
+
+	private Square CurrentSquare
+	{
+		get { return squares[currentIndexSquare]; }
+	}
+
 	private void Start ()
 	{
 		dice.Throw ();
@@ -23,13 +29,23 @@ public class Board : MonoBehaviour
 	private void Update()
 	{
 		dice.Position (chracter.Position + (Vector3.up *2));
-		if(squaresToSteps != null && squaresToSteps.Count > 0)
+		if (gameState == GameState.MovingTurn)
+			TryToMove ();
+		else if ( gameState == GameState.EndTurn )
+			CurrentSquare.Execute ();
+	}
+
+	private void TryToMove ()
+	{
+		if (squaresToSteps != null && squaresToSteps.Count > 0) 
 		{
-			chracter.MoveTo( squaresToSteps[0].transform );
-			float distance = Vector3.Distance(chracter.Position,squaresToSteps[0].transform.position);
-	
-			if(distance < minDistanceBetweenCharacterAndSquares)
-				squaresToSteps.RemoveAt(0);
+			chracter.MoveTo (squaresToSteps [0].transform);
+			float distance = Vector3.Distance (chracter.Position, squaresToSteps [0].transform.position);
+			if (distance < minDistanceBetweenCharacterAndSquares)
+				squaresToSteps.RemoveAt (0);
+
+			if(squaresToSteps.Count == 0)
+				gameState = GameState.EndTurn;
 		}
 	}
 
@@ -43,6 +59,14 @@ public class Board : MonoBehaviour
 			dice.Stop ();
 			squaresToSteps = squares.GetRange(currentIndexSquare,dice.Value);
 			currentIndexSquare+= dice.Value;
+			this.gameState = GameState.MovingTurn;
+			Invoke (Helpers.NameOf (HideDice), 1F);
 		}
 	}
+
+	private void HideDice ()
+	{
+		dice.Hide ();
+	}
+
 }
