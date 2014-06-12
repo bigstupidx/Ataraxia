@@ -5,20 +5,18 @@ using System.Collections.Generic;
 public class Board : MonoBehaviour 
 {
 	[SerializeField]
+	private float minDistanceBetweenCharacterAndSquares = 1.45F;
+	[SerializeField]
 	private Character chracter;
 	[SerializeField]
 	private Dice dice;
 	[SerializeField]
-	private GameObject squaresContainer;
 	private List<Square> squares = new List<Square>();
 	private int currentIndexSquare = 0;
 	private List<Square> squaresToSteps;
-
+	
 	private void Start ()
 	{
-		squares = new List<Square> ();
-		foreach(Square square in squaresContainer.GetComponentsInChildren<Square>())
-			squares.Add(square);
 		dice.Throw ();
 	}
 
@@ -30,10 +28,9 @@ public class Board : MonoBehaviour
 			chracter.MoveTo( squaresToSteps[0].transform );
 			float distance = Vector3.Distance(chracter.Position,squaresToSteps[0].transform.position);
 	
-			if(distance < 1.6F)
+			if(distance < minDistanceBetweenCharacterAndSquares)
 				squaresToSteps.RemoveAt(0);
 		}
-
 	}
 
 	private void OnGUI ()
@@ -48,6 +45,4 @@ public class Board : MonoBehaviour
 			currentIndexSquare+= dice.Value;
 		}
 	}
-
-
 }

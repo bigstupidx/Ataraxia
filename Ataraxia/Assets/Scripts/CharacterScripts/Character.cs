@@ -32,7 +32,7 @@ public class Character : MonoBehaviour
 
 	private void GetControlInputToMove ()
 	{
-		characerMoveByInput = GetInputToMove (character);
+		//characerMoveByInput = GetInputToMove (character);
 	}
 
 	private ICharacterMoveInput GetInputToMove (CharacterMoveToPoint character)

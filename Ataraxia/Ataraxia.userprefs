@@ -1,17 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Dice\Dice.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Levels/Board.cs">
     <Files>
-      <File FileName="Assets\Scripts\Utils\Helpers.cs" Line="16" Column="56" />
-      <File FileName="Assets\Scripts\Dev\DevScene.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Dice\Dice.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\CharacterScripts\Character.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\CharacterScripts\CharacterMoveByTouch.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Levels\Square.cs" Line="24" Column="25" />
-      <File FileName="Assets\Scripts\CharacterScripts\CharacterMoveToPoint.cs" Line="59" Column="3" />
-      <File FileName="Assets\Scripts\CharacterScripts\CharacterLookAtCamera.cs" Line="18" Column="1" />
-      <File FileName="Assets\Scripts\CharacterScripts\CharacterBehaviour.cs" Line="7" Column="88" />
-      <File FileName="Assets\Scripts\General\CameraFollowCharacter.cs" Line="15" Column="97" />
+      <File FileName="Assets/Scripts/Dev/DevScene.cs" Line="1" Column="19" />
+      <File FileName="Assets/Scripts/CharacterScripts/CharacterMoveToPoint.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/CharacterScripts/Character.cs" Line="35" Column="5" />
+      <File FileName="Assets/Scripts/Levels/Board.cs" Line="18" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
