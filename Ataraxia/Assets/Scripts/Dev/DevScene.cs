@@ -26,7 +26,7 @@ public class DevScene : MonoBehaviour
 		else if(currentBox < boxes.Count - 1)
 			currentBox++;
 
-		character.MoveTo(boxes[currentBox].transform);
+		character.MoveTo(boxes[currentBox].transform.position);
 	}
 
 	private void GoToPrevBox ()
@@ -34,6 +34,6 @@ public class DevScene : MonoBehaviour
 		if(currentBox != -1 && currentBox > 0)
 			currentBox--;
 
-		character.MoveTo(boxes[currentBox].transform);
+		character.MoveTo(boxes[currentBox].transform.position);
 	}
 }

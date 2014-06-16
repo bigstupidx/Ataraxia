@@ -5,43 +5,129 @@ using System.Collections.Generic;
 public class Board : MonoBehaviour 
 {
 	[SerializeField]
-	private float minDistanceBetweenCharacterAndSquares = 1.45F;
+	private float minDistance = 1.51F;
 	[SerializeField]
-	private Character chracter;
+	private BoardData prefabBoardData;
+	[SerializeField]
+	private Character character;
 	[SerializeField]
 	private Dice dice;
 	[SerializeField]
 	private List<Square> squares = new List<Square>();
+	[SerializeField]
+	private MiniGamesManager miniGamesManager;
 	private int currentIndexSquare = 0;
 	private List<Square> squaresToSteps;
 	private GameState gameState = GameState.StartingTurn;
 
+	public MiniGamesManager MiniGamesManager
+	{
+		get {return miniGamesManager;}
+	}
+
+	public static Board Instance
+	{
+		get;
+		private set;
+	}
+
 	private Square CurrentSquare
 	{
-		get { return squares[currentIndexSquare]; }
+		get { return squares[currentIndexSquare - 1]; }
+	}
+
+	private void Awake ()
+	{
+		if(Instance == null)
+			Instance = this;
 	}
 
 	private void Start ()
 	{
 		dice.Throw ();
+		BoardData boardData = FindObjectOfType<BoardData> ();
+		if(boardData != null)
+			GetBoardData (boardData);
+	}
+
+	private void GetBoardData (BoardData boardData)
+	{
+		currentIndexSquare = boardData.currentSquare;
+		gameState = boardData.gameState;
+		character.PositionTo (boardData.currentCharacterPosition);
+		MiniGamesManager.SetMiniGameByIndex (boardData.indexMiniGame,boardData.miniGameState,boardData.minigamesViewed);
+		boardData.Unload ();
+	}
+
+	private void SetBoardData ()
+	{
+		BoardData boardData = Instantiate(prefabBoardData) as BoardData;
+		boardData.SetData ( currentIndexSquare,gameState,character.Position);
+		boardData.SetMiniGamesData( miniGamesManager.MiniGamesViewed,miniGamesManager.CurrentGameIndex);
+	}
+
+	public void LoadMiniGame ()
+	{
+		string miniGameName = miniGamesManager.GetMiniGame ();
+		SetBoardData ();
+		LevelLoader.Instance.LoadScene (miniGameName);
+	}
+
+	public void GoBackward (int range)
+	{
+		List<Square> steps = GetSquareRange (currentIndexSquare - (range +1) , range);
+		steps.Reverse ();
+		squaresToSteps = steps;
+		currentIndexSquare -= range;
+		gameState = GameState.MovingTurn;
+	}
+
+	public void GoForward (int range)
+	{
+		squaresToSteps = GetSquareRange (currentIndexSquare, range);
+		currentIndexSquare += range;
+		gameState = GameState.MovingTurn;
 	}
 
 	private void Update()
 	{
-		dice.Position (chracter.Position + (Vector3.up *2));
+		dice.Position (character.Position + (Vector3.up * 2));
+		if(!miniGamesManager.CurrentMiniGame )
+			BoardData ();
+		else if(gameState == GameState.GiveRewards)
+			GiveRewardsMiniGame ();
+	}
+
+	private void BoardData ()
+	{
 		if (gameState == GameState.MovingTurn)
 			TryToMove ();
-		else if ( gameState == GameState.EndTurn )
-			CurrentSquare.Execute ();
+		else if (gameState == GameState.EndTurn) 
+		{
+			Invoke (Helpers.NameOf (ExecuteAction), 1.5F);
+			gameState = GameState.ExecuteAction;
+		}
+	}
+
+	private void GiveRewardsMiniGame ()
+	{
+		gameState = GameState.StartingTurn;
+		miniGamesManager.GetRewards ();
+		miniGamesManager.EndMiniGame ();
+	}
+
+	private void ExecuteAction ()
+	{
+		CurrentSquare.Execute ();
 	}
 
 	private void TryToMove ()
 	{
 		if (squaresToSteps != null && squaresToSteps.Count > 0) 
 		{
-			chracter.MoveTo (squaresToSteps [0].transform);
-			float distance = Vector3.Distance (chracter.Position, squaresToSteps [0].transform.position);
-			if (distance < minDistanceBetweenCharacterAndSquares)
+			character.MoveTo (squaresToSteps [0].Position);
+
+			if (character.GetDistance(squaresToSteps[0]) < minDistance)
 				squaresToSteps.RemoveAt (0);
 
 			if(squaresToSteps.Count == 0)
@@ -51,22 +137,33 @@ public class Board : MonoBehaviour
 
 	private void OnGUI ()
 	{
+		if(miniGamesManager.CurrentMiniGame != null)
+			return;
+
 		if(GUI.Button(new Rect(0F,0F,150F,25F),"Throw Dice"))
+		{
+			dice.Show ();
 			dice.Throw ();
+		}
 
 		if(GUI.Button(new Rect(0F,50F,150F,25F),"Stop Dice"))
 		{
 			dice.Stop ();
-			squaresToSteps = squares.GetRange(currentIndexSquare,dice.Value);
-			currentIndexSquare+= dice.Value;
-			this.gameState = GameState.MovingTurn;
-			Invoke (Helpers.NameOf (HideDice), 1F);
+			Invoke (Helpers.NameOf (StartMovingCharacter), 1F);
 		}
 	}
 
-	private void HideDice ()
+	private void StartMovingCharacter ()
 	{
+		int moveSteps = dice.Value;
+		squaresToSteps = GetSquareRange (currentIndexSquare, moveSteps);
+		currentIndexSquare+= moveSteps;
+		this.gameState = GameState.MovingTurn;
 		dice.Hide ();
 	}
 
+	private List<Square> GetSquareRange ( int min, int count)
+	{
+		return squares.GetRange (min, count);
+	}
 }

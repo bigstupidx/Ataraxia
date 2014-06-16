@@ -5,5 +5,7 @@ public enum GameState
 {
 	StartingTurn = 0,
 	MovingTurn = 1,
-	EndTurn = 2
+	EndTurn = 2,
+	ExecuteAction = 3,
+	GiveRewards = 4
 }

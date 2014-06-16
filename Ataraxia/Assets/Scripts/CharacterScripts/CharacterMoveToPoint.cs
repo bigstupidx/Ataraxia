@@ -33,11 +33,6 @@ public class CharacterMoveToPoint : CharacterBehaviour
 		this.myTransform.localPosition = position;
 	}
 
-	public void MoveTo(Transform target)
-	{
-		MoveTo(target.position);
-	}
-
 	public void MoveTo(Vector3 target)
 	{
 		this.target = target;

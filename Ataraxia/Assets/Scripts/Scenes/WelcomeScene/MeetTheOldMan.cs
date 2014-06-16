@@ -27,7 +27,7 @@ public class MeetTheOldMan: TakeScene
 	{
 		Character character = Menu.Instance.GetCharacterByType (CharacterType.Ataraxia);
 		characterTransform = character.transform;
-		character.MoveTo (finalPosition);
+		character.MoveTo (finalPosition.position);
 		characterMove = character.GetComponent<CharacterMoveToPoint> ();
 	}
 

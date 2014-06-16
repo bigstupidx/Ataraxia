@@ -30,6 +30,11 @@ public class Character : MonoBehaviour
 		GetControlInputToMove ();
 	}
 
+	public float GetDistance (Square square)
+	{
+		return Vector3.Distance (Position,square.Position);
+	}
+
 	private void GetControlInputToMove ()
 	{
 		//characerMoveByInput = GetInputToMove (character);
@@ -55,7 +60,7 @@ public class Character : MonoBehaviour
 		myTransform.localPosition = position;
 	}
 
-	public void MoveTo ( Transform position )
+	public void MoveTo ( Vector3 position )
 	{
 		character.MoveTo(position);
 	}
