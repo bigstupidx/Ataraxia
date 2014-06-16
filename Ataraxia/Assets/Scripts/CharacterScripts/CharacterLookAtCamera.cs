@@ -15,8 +15,11 @@ public class CharacterLookAtCamera : CharacterBehaviour
 
 	public override void Execute () 
 	{
-		Vector3 target = new Vector3(cameraTransform.position.x,myTransform.position.y,cameraTransform.position.z);
-		myTransform.LookAt(target);
+		if( Board.Instance != null && Board.Instance.GameState != GameState.MovingTurn)
+		{ 
+			Vector3 target = new Vector3(cameraTransform.position.x,myTransform.position.y,cameraTransform.position.z);
+			myTransform.LookAt(target);
+		}
 	}
 	
 	public override void SetCharacterController (CharacterController characterController)

@@ -1,0 +1,197 @@
+fileFormatVersion: 2
+guid: 4e7caf4dd2f6baa4886adbcf7fc58bc2
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Ata Bip
+    100002: Ata Bip Head
+    100004: Ata Bip Jaw
+    100006: Ata Bip L Calf
+    100008: Ata Bip L Clavicle
+    100010: Ata Bip L Finger0
+    100012: Ata Bip L Finger01
+    100014: Ata Bip L Finger02
+    100016: Ata Bip L Finger1
+    100018: Ata Bip L Finger11
+    100020: Ata Bip L Finger12
+    100022: Ata Bip L Finger2
+    100024: Ata Bip L Finger21
+    100026: Ata Bip L Finger22
+    100028: Ata Bip L Finger3
+    100030: Ata Bip L Finger31
+    100032: Ata Bip L Finger32
+    100034: Ata Bip L Finger4
+    100036: Ata Bip L Finger41
+    100038: Ata Bip L Finger42
+    100040: Ata Bip L Foot
+    100042: Ata Bip L Forearm
+    100044: Ata Bip L Hand
+    100046: Ata Bip L Thigh
+    100048: Ata Bip L Toe0
+    100050: Ata Bip L UpperArm
+    100052: Ata Bip Lock
+    100054: Ata Bip Neck
+    100056: Ata Bip Pelvis
+    100058: Ata Bip Ponytail1
+    100060: Ata Bip Ponytail11
+    100062: Ata Bip Ponytail2
+    100064: Ata Bip R Calf
+    100066: Ata Bip R Clavicle
+    100068: Ata Bip R Finger0
+    100070: Ata Bip R Finger01
+    100072: Ata Bip R Finger02
+    100074: Ata Bip R Finger1
+    100076: Ata Bip R Finger11
+    100078: Ata Bip R Finger12
+    100080: Ata Bip R Finger2
+    100082: Ata Bip R Finger21
+    100084: Ata Bip R Finger22
+    100086: Ata Bip R Finger3
+    100088: Ata Bip R Finger31
+    100090: Ata Bip R Finger32
+    100092: Ata Bip R Finger4
+    100094: Ata Bip R Finger41
+    100096: Ata Bip R Finger42
+    100098: Ata Bip R Foot
+    100100: Ata Bip R Forearm
+    100102: Ata Bip R Hand
+    100104: Ata Bip R Thigh
+    100106: Ata Bip R Toe0
+    100108: Ata Bip R UpperArm
+    100110: Ata Bip Scarf
+    100112: Ata Bip Scarf02
+    100114: Ata Bip Scarf03
+    100116: Ata Bip Spine
+    100118: Ata Bip Spine1
+    100120: Ata Facial_Point
+    100122: Ata Facial_Rig_Lt_Dwn_EyeLid
+    100124: Ata Facial_Rig_Lt_Eyebrow
+    100126: Ata Facial_Rig_Lt_Up_EyeLid
+    100128: Ata Facial_Rig_Rt_Dwn_EyeLid
+    100130: Ata Facial_Rig_Rt_Eyebrow
+    100132: Ata Facial_Rig_Rt_Up_EyeLid
+    100134: //RootNode
+    400000: Ata Bip
+    400002: Ata Bip Head
+    400004: Ata Bip Jaw
+    400006: Ata Bip L Calf
+    400008: Ata Bip L Clavicle
+    400010: Ata Bip L Finger0
+    400012: Ata Bip L Finger01
+    400014: Ata Bip L Finger02
+    400016: Ata Bip L Finger1
+    400018: Ata Bip L Finger11
+    400020: Ata Bip L Finger12
+    400022: Ata Bip L Finger2
+    400024: Ata Bip L Finger21
+    400026: Ata Bip L Finger22
+    400028: Ata Bip L Finger3
+    400030: Ata Bip L Finger31
+    400032: Ata Bip L Finger32
+    400034: Ata Bip L Finger4
+    400036: Ata Bip L Finger41
+    400038: Ata Bip L Finger42
+    400040: Ata Bip L Foot
+    400042: Ata Bip L Forearm
+    400044: Ata Bip L Hand
+    400046: Ata Bip L Thigh
+    400048: Ata Bip L Toe0
+    400050: Ata Bip L UpperArm
+    400052: Ata Bip Lock
+    400054: Ata Bip Neck
+    400056: Ata Bip Pelvis
+    400058: Ata Bip Ponytail1
+    400060: Ata Bip Ponytail11
+    400062: Ata Bip Ponytail2
+    400064: Ata Bip R Calf
+    400066: Ata Bip R Clavicle
+    400068: Ata Bip R Finger0
+    400070: Ata Bip R Finger01
+    400072: Ata Bip R Finger02
+    400074: Ata Bip R Finger1
+    400076: Ata Bip R Finger11
+    400078: Ata Bip R Finger12
+    400080: Ata Bip R Finger2
+    400082: Ata Bip R Finger21
+    400084: Ata Bip R Finger22
+    400086: Ata Bip R Finger3
+    400088: Ata Bip R Finger31
+    400090: Ata Bip R Finger32
+    400092: Ata Bip R Finger4
+    400094: Ata Bip R Finger41
+    400096: Ata Bip R Finger42
+    400098: Ata Bip R Foot
+    400100: Ata Bip R Forearm
+    400102: Ata Bip R Hand
+    400104: Ata Bip R Thigh
+    400106: Ata Bip R Toe0
+    400108: Ata Bip R UpperArm
+    400110: Ata Bip Scarf
+    400112: Ata Bip Scarf02
+    400114: Ata Bip Scarf03
+    400116: Ata Bip Spine
+    400118: Ata Bip Spine1
+    400120: Ata Facial_Point
+    400122: Ata Facial_Rig_Lt_Dwn_EyeLid
+    400124: Ata Facial_Rig_Lt_Eyebrow
+    400126: Ata Facial_Rig_Lt_Up_EyeLid
+    400128: Ata Facial_Rig_Rt_Dwn_EyeLid
+    400130: Ata Facial_Rig_Rt_Eyebrow
+    400132: Ata Facial_Rig_Rt_Up_EyeLid
+    400134: //RootNode
+    7400000: Take 001
+    9500000: //RootNode
+    11100000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 2
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 

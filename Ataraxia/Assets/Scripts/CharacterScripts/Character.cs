@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Character : MonoBehaviour 
 {
+	public bool isEnableControlToMove = false;
 	public CharacterType characterType;
 	[SerializeField]
 	private CharacterController characterController;
@@ -37,7 +38,8 @@ public class Character : MonoBehaviour
 
 	private void GetControlInputToMove ()
 	{
-		//characerMoveByInput = GetInputToMove (character);
+		if(isEnableControlToMove)
+			characerMoveByInput = GetInputToMove (character);
 	}
 
 	private ICharacterMoveInput GetInputToMove (CharacterMoveToPoint character)

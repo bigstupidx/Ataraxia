@@ -25,6 +25,11 @@ public class Board : MonoBehaviour
 		get {return miniGamesManager;}
 	}
 
+	public GameState GameState
+	{
+		get{ return gameState;}
+	}
+
 	public static Board Instance
 	{
 		get;
@@ -91,7 +96,7 @@ public class Board : MonoBehaviour
 
 	private void Update()
 	{
-		dice.Position (character.Position + (Vector3.up * 2));
+		dice.Position (character.Position + (Vector3.up * 3));
 		if(!miniGamesManager.CurrentMiniGame )
 			BoardData ();
 		else if(gameState == GameState.GiveRewards)
@@ -126,7 +131,7 @@ public class Board : MonoBehaviour
 		if (squaresToSteps != null && squaresToSteps.Count > 0) 
 		{
 			character.MoveTo (squaresToSteps [0].Position);
-
+		
 			if (character.GetDistance(squaresToSteps[0]) < minDistance)
 				squaresToSteps.RemoveAt (0);
 

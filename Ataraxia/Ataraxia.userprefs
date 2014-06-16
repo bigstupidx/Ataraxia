@@ -1,16 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Levels\SquareMoveBackwards.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MiniGames\Plant.cs">
     <Files>
-      <File FileName="Assets\Scripts\Levels\Board.cs" Line="115" Column="25" />
-      <File FileName="Assets\Scripts\CharacterScripts\Character.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Level\LevelLoader.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Dev\MiniGameDev.cs" Line="18" Column="26" />
-      <File FileName="Assets\Scripts\Levels\MiniGamesManager.cs" Line="37" Column="27" />
-      <File FileName="Assets\Scripts\Levels\BoardData.cs" Line="22" Column="1" />
-      <File FileName="Assets\Scripts\Levels\SimpleSquare.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Levels\SpecialSquare.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Levels\SquareMoveBackwards.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Scenes\WelcomeScene\TakeWelcome.cs" Line="8" Column="3" />
+      <File FileName="..\..\Escalera\Assets\scripts\Plants.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\MiniGames\Plant.cs" Line="11" Column="17" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
