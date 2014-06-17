@@ -19,6 +19,7 @@ public class CharacterMoveToPoint : CharacterBehaviour
 		{ 
 			if( target == Vector3.zero )
 				return true;
+			Debug.Log (SqrtDist + " --- " + proximity);
 			return SqrtDist <= proximity; 
 		}
 	}
