@@ -11,9 +11,12 @@ public class Character : MonoBehaviour
 	private Transform myTransform;
 	[SerializeField]
 	private CharacterMoveToPoint character;
+	[SerializeField]
+	private CharacterLookAtCamera lookAtController;
 	private CharacterBehaviour [] behaviours;
 	private ICharacterMoveInput characerMoveByInput;
 	private AnimationManager animationManager;
+	private Quaternion initialRotation;
 
 	public Vector3 Position
 	{
@@ -27,6 +30,7 @@ public class Character : MonoBehaviour
 
 	private void Start ()
 	{
+		initialRotation = Quaternion.identity;
 		GetAnimationManager ();
 		myTransform = transform;
 		HandleCharacterController ();
@@ -49,6 +53,12 @@ public class Character : MonoBehaviour
 	{
 		Animation anim = animationManager.Play( AnimationManager.LOSE);
 		Invoke(Helpers.NameOf(RestarToIdle), anim[AnimationManager.LOSE].length);
+	}
+
+	public void StartCounting (float time)
+	{
+		animationManager.Play( AnimationManager.COUNT);
+		Invoke(Helpers.NameOf(RestarToIdle),time);
 	}
 
 	private void RestarToIdle ()
@@ -90,6 +100,16 @@ public class Character : MonoBehaviour
 	public void MoveTo ( Vector3 position )
 	{
 		character.MoveTo(position);
+	}
+
+	public void LookAt (Vector3 target)
+	{
+		lookAtController.LookAt(target);
+	}
+
+	public void RestartRotation ()
+	{
+		myTransform.rotation = initialRotation;
 	}
 
 	private void Update ()

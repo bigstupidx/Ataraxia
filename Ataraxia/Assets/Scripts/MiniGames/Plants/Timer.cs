@@ -4,6 +4,8 @@ using System.Collections;
 public class Timer : MonoBehaviour 
 {
 	[SerializeField]
+	private bool isDecreaseTime = true;
+	[SerializeField]
 	private AtaraxiaText label;
 	[SerializeField]
 	private float totalTime = 59.0F;
@@ -13,12 +15,18 @@ public class Timer : MonoBehaviour
 
 	public bool IsTimeOver
 	{
-		get{ return currentTime <= 0.0F;}
+		get{ return (int)storedTime == (int)totalTime+1;}
+	}
+
+	public float TotalTime
+	{
+		get{return totalTime;}
 	}
 
 	public void StartTimer ()
 	{
-		currentTime = totalTime;
+		if(isDecreaseTime)
+			currentTime = totalTime;
 		CreateDelay ();
 	}
 
@@ -30,16 +38,23 @@ public class Timer : MonoBehaviour
 	private void Update ()
 	{
 		if(IsTimeOver)
-			return;
-
-		if(Time.realtimeSinceStartup > storedTime)
 		{
-			currentTime-=descountTime;
+			label.Text = string.Empty;
+			return;
+		}
+		else if(Time.realtimeSinceStartup > storedTime)
+		{
+			ManageTime ();
 			CreateDelay ();
 			label.Text = currentTime.ToString ();
-		}
+		}	
+	}
 
-		if(currentTime == 0)
-			label.text = string.Empty;
+	private void ManageTime ()
+	{
+		if(isDecreaseTime)
+			currentTime -= descountTime;
+		else 
+			currentTime += descountTime;
 	}
 }
