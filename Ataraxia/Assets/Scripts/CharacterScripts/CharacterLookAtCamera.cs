@@ -7,8 +7,9 @@ public class CharacterLookAtCamera : CharacterBehaviour
 	private Transform myTransform ;
 	private Transform cameraTransform;
 
-	private void Start ()
+	protected override void Start ()
 	{
+		base.Start ();
 		myTransform = transform;
 		cameraTransform = Camera.main.transform;
 	}
@@ -18,8 +19,13 @@ public class CharacterLookAtCamera : CharacterBehaviour
 		if( Board.Instance != null && Board.Instance.GameState != GameState.MovingTurn)
 		{ 
 			Vector3 target = new Vector3(cameraTransform.position.x,myTransform.position.y,cameraTransform.position.z);
-			myTransform.LookAt(target);
+			LookAt (target);
 		}
+	}
+
+	public void LookAt (Vector3 target)
+	{
+		myTransform.LookAt(target);
 	}
 	
 	public override void SetCharacterController (CharacterController characterController)

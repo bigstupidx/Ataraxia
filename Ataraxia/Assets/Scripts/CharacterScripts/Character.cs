@@ -13,6 +13,7 @@ public class Character : MonoBehaviour
 	private CharacterMoveToPoint character;
 	private CharacterBehaviour [] behaviours;
 	private ICharacterMoveInput characerMoveByInput;
+	private AnimationManager animationManager;
 
 	public Vector3 Position
 	{
@@ -26,9 +27,33 @@ public class Character : MonoBehaviour
 
 	private void Start ()
 	{
+		GetAnimationManager ();
 		myTransform = transform;
 		HandleCharacterController ();
 		GetControlInputToMove ();
+	}
+
+	private void GetAnimationManager ()
+	{
+		Animation animation = GetComponentInChildren<Animation> ();
+		animationManager = new AnimationManager (animation);
+	}
+
+	public void StartCelebration ()
+	{
+		Animation anim = animationManager.Play( AnimationManager.CELEBRATION);
+		Invoke(Helpers.NameOf(RestarToIdle), anim[AnimationManager.CELEBRATION].length);
+	}
+
+	public void StartLose ()
+	{
+		Animation anim = animationManager.Play( AnimationManager.LOSE);
+		Invoke(Helpers.NameOf(RestarToIdle), anim[AnimationManager.LOSE].length);
+	}
+
+	private void RestarToIdle ()
+	{
+		animationManager.Play(AnimationManager.IDLE);
 	}
 
 	public float GetDistance (Square square)

@@ -19,7 +19,6 @@ public class CharacterMoveToPoint : CharacterBehaviour
 		{ 
 			if( target == Vector3.zero )
 				return true;
-			Debug.Log (SqrtDist + " --- " + proximity);
 			return SqrtDist <= proximity; 
 		}
 	}
@@ -58,9 +57,12 @@ public class CharacterMoveToPoint : CharacterBehaviour
 	{
 		if (!HasArrivedToTargetPoint)
 		{
+			animationManager.Play(AnimationManager.WALK);
 			LookAt (direction);
 			characterController.SimpleMove (direction * velocity);
 		}
+		else
+			animationManager.Play(AnimationManager.IDLE);
 	}
 
 	public void LookAt (Vector3 lookAtPosition)

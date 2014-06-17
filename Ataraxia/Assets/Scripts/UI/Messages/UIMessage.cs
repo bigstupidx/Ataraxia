@@ -53,7 +53,6 @@ public class UIMessage : MonoBehaviour , IUIMessage
 			Hide();
 			if(OnAccepted != null)
 				OnAccepted ();
-			OnAccepted = null;
 		}
 	}
 
@@ -61,10 +60,26 @@ public class UIMessage : MonoBehaviour , IUIMessage
 	{
 		text.Text = message.message;
 		panel.BringIn ();
+		if(!message.isButtonCancelVisible && acceptButton != null)
+			SetOnlyButtonAccept ();
+	}
+
+	private void SetOnlyButtonAccept ()
+	{
+		cancelButton.transform.localScale = Vector3.zero;
+		acceptButton.transform.localPosition = new Vector3 (0.0f, 30f, 0.9f);
 	}
 
 	public void Hide ()
 	{
 		panel.Dismiss ();
+		if(acceptButton != null)
+			ResetButtonAccept ();
+	}
+
+	private void ResetButtonAccept ()
+	{
+		cancelButton.transform.localScale = Vector3.one;
+		acceptButton.transform.localPosition = new Vector3 (-135f, 30f, 0.9f);;
 	}
 }

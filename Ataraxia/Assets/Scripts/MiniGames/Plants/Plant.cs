@@ -24,9 +24,16 @@ public class Plant : MonoBehaviour
 	private int deteriorateRate = 7;
 	private float timeToDeteriorate;
 	private int life;
+	private Transform myTransform;
+
 	public Action Deteriorated;
 	public Action Healed;
-	public Action<Vector3> GetWateringPosition;
+	public Action<Vector3,Plant> GetWateringPosition;
+
+	public Vector3 Position
+	{
+		get{ return myTransform.position;}
+	}
 
 	public float CurrentLife
 	{
@@ -56,6 +63,7 @@ public class Plant : MonoBehaviour
 
 	private void Start ()
 	{
+		myTransform = transform;
 		timeToDeteriorate = Time.realtimeSinceStartup + delayToDeteriorate;
 		ChangeMorp ();
 	}
@@ -101,7 +109,7 @@ public class Plant : MonoBehaviour
 		if (characterDetector.CanWatering)
 			Recovery ();
 		else if(GetWateringPosition != null)
-			GetWateringPosition( characterDetector.Position );
+			GetWateringPosition( characterDetector.Position,this );
 	}
 
 	private void Recovery ()

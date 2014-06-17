@@ -6,6 +6,7 @@ using System.Collections;
 public class UIMessageDescriptor
 {
 	public string message;
+	public bool isButtonCancelVisible = true;
 }
 
 public enum SpeakerPosition
