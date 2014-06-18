@@ -19,14 +19,13 @@ public class CharacterMoveToPoint : CharacterBehaviour
 		{ 
 			if( target == Vector3.zero )
 				return true;
-	
 			return SqrtDist <= proximity; 
 		}
 	}
 
 	private float SqrtDist
 	{
-		get { return (myTransform.position - target).sqrMagnitude; }
+		get { return (myTransform.position - target).sqrMagnitude; }//Vector3.Distance(myTransform.position,target);}
 	}
 
 	public void SetPosition ( Vector3 position )
@@ -62,7 +61,8 @@ public class CharacterMoveToPoint : CharacterBehaviour
 			LookAt (direction);
 			characterController.SimpleMove (direction * velocity);
 		}
-		else animationManager.Play(AnimationManager.IDLE);
+		else 
+			animationManager.Play(AnimationManager.IDLE);
 	}
 
 	public void LookAt (Vector3 lookAtPosition)

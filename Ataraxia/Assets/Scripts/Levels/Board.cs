@@ -5,6 +5,8 @@ using System.Collections.Generic;
 public class Board : MonoBehaviour 
 {
 	[SerializeField]
+	private float minDistanceLastSquare = 1.51F;
+	[SerializeField]
 	private float minDistance = 1.51F;
 	[SerializeField]
 	private BoardData prefabBoardData;
@@ -109,6 +111,7 @@ public class Board : MonoBehaviour
 			TryToMove ();
 		else if (gameState == GameState.EndTurn) 
 		{
+			character.Stop ();
 			Invoke (Helpers.NameOf (ExecuteAction), 1.5F);
 			gameState = GameState.ExecuteAction;
 		}
@@ -131,8 +134,10 @@ public class Board : MonoBehaviour
 		if (squaresToSteps != null && squaresToSteps.Count > 0) 
 		{
 			character.MoveTo (squaresToSteps [0].Position);
-		
-			if (character.GetDistance(squaresToSteps[0]) < minDistance)
+
+			float distance = squaresToSteps.Count == 1 ? minDistanceLastSquare : minDistance;
+
+			if (character.GetDistance(squaresToSteps[0]) < distance)
 				squaresToSteps.RemoveAt (0);
 
 			if(squaresToSteps.Count == 0)

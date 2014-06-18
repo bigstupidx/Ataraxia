@@ -112,6 +112,12 @@ public class Character : MonoBehaviour
 		myTransform.rotation = initialRotation;
 	}
 
+	public void Stop ()
+	{
+		character.MoveTo ( Vector3.zero);
+		RestarToIdle ();
+	}
+
 	private void Update ()
 	{
 		if(characerMoveByInput != null)
