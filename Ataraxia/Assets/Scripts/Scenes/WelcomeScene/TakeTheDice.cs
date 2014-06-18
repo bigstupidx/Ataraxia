@@ -14,8 +14,12 @@ public class TakeTheDice : TakeScene
 
 	public override void StartScene (System.Action endCallback, CameraManager cameraManager)
 	{
+		Character characterOldMan = Menu.Instance.GetCharacterByType (CharacterType.GranSabio);
+		Character ataraxia = Menu.Instance.GetCharacterByType (CharacterType.Ataraxia);
+		startPoint = characterOldMan.transform;
+		endPoint = ataraxia.transform;
 		base.StartScene (endCallback, cameraManager);
-		GameObject prefabDiceGO = Instantiate (prefabDice,startPoint.position,Quaternion.identity) as GameObject;
+		GameObject prefabDiceGO = Instantiate (prefabDice,startPoint.position + Vector3.up,Quaternion.identity) as GameObject;
 		dice = prefabDiceGO.transform;
 		StartDialog ();
 	}
@@ -24,11 +28,12 @@ public class TakeTheDice : TakeScene
 	{
 		if(dice == null)
 			return;
-		Vector3 newPos = endPoint.position - dice.position;
+		Vector3 end = endPoint.position - (Vector3.up/2);
+		Vector3 newPos = end - dice.position;
 		newPos.Normalize ();
 
-		if( (dice.position - endPoint.position).sqrMagnitude > 0.1F)
-			dice.Translate(newPos * Time.deltaTime);
+		if( (dice.position - endPoint.position).sqrMagnitude > 1F)
+			dice.Translate(newPos * Time.deltaTime * 5.0F);
 
 		else if(!canFinish)
 		{

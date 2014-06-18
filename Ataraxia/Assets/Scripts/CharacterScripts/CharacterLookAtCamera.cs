@@ -11,7 +11,8 @@ public class CharacterLookAtCamera : CharacterBehaviour
 	{
 		base.Start ();
 		myTransform = transform;
-		cameraTransform = Camera.main.transform;
+		if(Camera.main != null)
+			cameraTransform = Camera.main.transform;
 	}
 
 	public override void Execute () 

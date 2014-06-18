@@ -5,6 +5,8 @@ public class MeetTheOldMan: TakeScene
 {
 	[SerializeField]
 	private Transform finalPosition;
+	[SerializeField]
+	private Transform target;
 	private CharacterMoveToPoint characterMove;
 	private bool canShowTheMessage = true;
 	private Transform characterTransform;
@@ -19,7 +21,7 @@ public class MeetTheOldMan: TakeScene
 
 	private void GetNonPlayableCharacter ()
 	{
-		Character characterOldMan = Menu.Instance.GetCharacterByType (CharacterType.OldMen);
+		Character characterOldMan = Menu.Instance.GetCharacterByType (CharacterType.GranSabio);
 		oldMan = characterOldMan.transform;
 	}
 
@@ -40,6 +42,6 @@ public class MeetTheOldMan: TakeScene
 		}
 
 		if(!this.canShowTheMessage)
-			characterMove.LookAt (oldMan.position);
+			characterMove.LookAt (target.position);
 	}
 }

@@ -12,7 +12,8 @@ public class TakeWelcomeStep : TakeScene
 	{
 		base.StartScene (endCallback, cameraManager);
 		Character character = Menu.Instance.GetCharacterByType(CharacterType.Ataraxia);
-		character.PositionTo (initPositionCharacter.localPosition);
+		character.PositionTo (initPositionCharacter.position);
 		Invoke (Helpers.NameOf(StartDialog),timeToStartMessage);
+
 	}
 }

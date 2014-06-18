@@ -12,7 +12,7 @@ public class Timer : MonoBehaviour
 	private float currentTime = 0.0F;
 	private float descountTime = 1.0F;
 	private float storedTime = 0.0F;
-
+	private bool isTimeStart = false;
 	public bool IsTimeOver
 	{
 		get{ return (int)storedTime == (int)totalTime+1;}
@@ -25,6 +25,7 @@ public class Timer : MonoBehaviour
 
 	public void StartTimer ()
 	{
+		isTimeStart = true;
 		if(isDecreaseTime)
 			currentTime = totalTime;
 		CreateDelay ();
@@ -37,17 +38,22 @@ public class Timer : MonoBehaviour
 
 	private void Update ()
 	{
-		if(IsTimeOver)
-		{
+		if(isTimeStart)
+			CountDown ();	
+	}
+
+	private void CountDown ()
+	{
+		if (IsTimeOver) {
 			label.Text = string.Empty;
 			return;
 		}
-		else if(Time.realtimeSinceStartup > storedTime)
+		else if (Time.realtimeSinceStartup > storedTime) 
 		{
 			ManageTime ();
 			CreateDelay ();
 			label.Text = currentTime.ToString ();
-		}	
+		}
 	}
 
 	private void ManageTime ()
