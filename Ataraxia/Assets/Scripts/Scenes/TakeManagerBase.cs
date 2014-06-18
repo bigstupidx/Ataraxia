@@ -19,6 +19,12 @@ public abstract class TakeManagerBase : MonoBehaviour
 		get{ return currentTake >= takes.Count; }
 	}
 
+	public bool IsTakeActive
+	{
+		get;
+		private set;
+	}
+
 	protected TakeScene CurrentScene
 	{
 		get{ return takes[currentTake];}
@@ -26,6 +32,7 @@ public abstract class TakeManagerBase : MonoBehaviour
 
 	protected virtual void StartScene ()
 	{
+		IsTakeActive = true;
 		StartCurrentTake ();
 	}
 
@@ -43,6 +50,11 @@ public abstract class TakeManagerBase : MonoBehaviour
 			EndScene();
 		else
 			StartCurrentTake();
+	}
+
+	protected void FinishActivity ()
+	{
+		IsTakeActive = false;
 	}
 
 	protected abstract void EndScene ();

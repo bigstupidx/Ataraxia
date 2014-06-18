@@ -19,4 +19,15 @@ public class Helpers
 			);
 		}
 	}
+
+	public static bool IsTakeSceneActive ()
+	{
+		TakeManagerBase [] takeScenes = MonoBehaviour.FindObjectsOfType<TakeManagerBase> ();
+		foreach(TakeManagerBase takeScene in takeScenes)
+		{
+			if(takeScene.IsTakeActive)
+				return true;
+		}
+		return false;
+	}
 }

@@ -24,5 +24,6 @@ public class TakeWelcome : TakeManagerBase
 		portal.IsEnabled = true;
 		UserData.SetDialogTypeFinished(sceneDialogType);
 		CameraManager.Instance.SetDefault ();
+		FinishActivity ();
 	}
 }

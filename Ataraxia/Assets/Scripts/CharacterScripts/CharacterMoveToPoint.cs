@@ -19,6 +19,7 @@ public class CharacterMoveToPoint : CharacterBehaviour
 		{ 
 			if( target == Vector3.zero )
 				return true;
+	
 			return SqrtDist <= proximity; 
 		}
 	}
@@ -61,14 +62,13 @@ public class CharacterMoveToPoint : CharacterBehaviour
 			LookAt (direction);
 			characterController.SimpleMove (direction * velocity);
 		}
-		else
-			animationManager.Play(AnimationManager.IDLE);
+		else animationManager.Play(AnimationManager.IDLE);
 	}
 
 	public void LookAt (Vector3 lookAtPosition)
 	{
-		myTransform.LookAt (GetTargetPosition (lookAtPosition));
-		myTransform.eulerAngles = new Vector3 (0, myTransform.eulerAngles.y, 0);
+		myTransform.LookAt (GetTargetPosition ( lookAtPosition));
+		myTransform.eulerAngles = new Vector3(0, myTransform.eulerAngles.y, 0);
 	}
 
 	private Vector3 GetTargetPosition (Vector3 lookAtPosition)

@@ -14,7 +14,8 @@ public class CharacterMoveByMouse : ICharacterMoveInput
 
 	public void Move ()
 	{
-		GetInputToMove ();
+		if(!Helpers.IsTakeSceneActive ())
+			GetInputToMove ();
 	}
 
 	private void GetInputToMove ()
