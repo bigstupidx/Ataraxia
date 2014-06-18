@@ -1,11 +1,18 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\LevelSelector\Portal.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Levels\Board.cs">
     <Files>
-      <File FileName="Assets\Editor\Ataraxia\CleanUpWindow.cs" Line="19" Column="2" />
+      <File FileName="Assets\Scripts\Levels\Board.cs" Line="46" Column="49" />
+      <File FileName="Assets\Scripts\Levels\MiniGamesManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Levels\MiniGameData.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Dice\Dice.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Levels\Square.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Levels\SquareMoveForwards.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Levels\SquareMoveBackwards.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\CharacterScripts\Character.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Scenes\WelcomeScene\TakeWelcome.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\LevelSelector\Portal.cs" Line="15" Column="3" />
-      <File FileName="Assets\Scripts\Level\LevelLoader.cs" Line="7" Column="2" />
+      <File FileName="Assets\Scripts\Scenes\TakeFinishJungle.cs" Line="4" Column="42" />
+      <File FileName="Assets\Scripts\Scenes\TakeManagerBase.cs" Line="10" Column="18" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

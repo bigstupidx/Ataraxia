@@ -13,13 +13,21 @@ public enum SquareType
 public class Square : MonoBehaviour 
 {
 	[SerializeField]
+	private bool isLast;
+	[SerializeField]
 	private SquareType squareType;
 	[SerializeField]
 	private int reward;
 	[SerializeField]
 	private int moveSquares;
+	[SerializeField]
+	private Square squareToGo;
 	private ISquare square;
 	private Transform myTransform;
+	public bool IsLast 
+	{
+		get{return isLast;}	
+	}
 
 	public Vector3 Position
 	{
@@ -39,9 +47,9 @@ public class Square : MonoBehaviour
 		else if(squareType == SquareType.Reward)
 			square = new RewardSquare ();
 		else if( squareType == SquareType.MoveBackwards)
-			square = new SquareMoveBackwards (moveSquares);
+			square = new SquareMoveBackwards (moveSquares,squareToGo);
 		else if( squareType == SquareType.MoveForwards)
-			square = new SquareMoveForwards (moveSquares);
+			square = new SquareMoveForwards (moveSquares,squareToGo);
 		else
 			square = new SpecialSquare ();
 	}

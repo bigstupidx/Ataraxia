@@ -3,7 +3,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class UIDialogMessage : UIMessage,IUIMessage 
+public class UIDialogMessage : UIMessageBase,IUIMessage 
 {
 	[SerializeField]
 	private UIButton closeButton;

@@ -15,13 +15,15 @@ public class Board : MonoBehaviour
 	[SerializeField]
 	private Dice dice;
 	[SerializeField]
+	Transform squaresContaner;
+	[SerializeField]
 	private List<Square> squares = new List<Square>();
 	[SerializeField]
 	private MiniGamesManager miniGamesManager;
 	private int currentIndexSquare = 0;
 	private List<Square> squaresToSteps;
 	private GameState gameState = GameState.StartingTurn;
-
+	
 	public MiniGamesManager MiniGamesManager
 	{
 		get {return miniGamesManager;}
@@ -40,6 +42,7 @@ public class Board : MonoBehaviour
 
 	private Square CurrentSquare
 	{
+
 		get { return squares[currentIndexSquare - 1]; }
 	}
 
@@ -51,10 +54,20 @@ public class Board : MonoBehaviour
 
 	private void Start ()
 	{
+		squares = GetSquares ();
 		dice.Throw ();
 		BoardData boardData = FindObjectOfType<BoardData> ();
 		if(boardData != null)
 			GetBoardData (boardData);
+	}
+
+	private List<Square> GetSquares ()
+	{
+		List<Square> squaresList = new List<Square>();
+		Square [] squaresArray = squaresContaner.GetComponentsInChildren<Square> ();
+		foreach(Square square in squaresArray)
+			squaresList.Add(square);
+		return squaresList;
 	}
 
 	private void GetBoardData (BoardData boardData)
@@ -80,29 +93,30 @@ public class Board : MonoBehaviour
 		LevelLoader.Instance.LoadScene (miniGameName);
 	}
 
-	public void GoBackward (int range)
+	public void GoBackward (int range , Square square)
 	{
-		List<Square> steps = GetSquareRange (currentIndexSquare - (range +1) , range);
-		steps.Reverse ();
-		squaresToSteps = steps;
+		character.PositionTo(square.Position);
 		currentIndexSquare -= range;
-		gameState = GameState.MovingTurn;
+		gameState = GameState.EndTurn;
 	}
 
-	public void GoForward (int range)
+	public void GoForward (Square square , int range)
 	{
-		squaresToSteps = GetSquareRange (currentIndexSquare, range);
+		List<Square> nextSquares = new List<Square>();
+		nextSquares.Add (square);
+		squaresToSteps = nextSquares;
 		currentIndexSquare += range;
 		gameState = GameState.MovingTurn;
 	}
 
 	private void Update()
 	{
+		dice.UpdateGameState (gameState);
 		dice.Position (character.Position + (Vector3.up * 3));
-		if(!miniGamesManager.CurrentMiniGame )
+		if(miniGamesManager.CurrentMiniGame == null )
 			BoardData ();
 		else if(gameState == GameState.GiveRewards)
-			GiveRewardsMiniGame ();
+			miniGamesManager.GetRewards (character , StartNewTurn);
 	}
 
 	private void BoardData ()
@@ -117,16 +131,23 @@ public class Board : MonoBehaviour
 		}
 	}
 
-	private void GiveRewardsMiniGame ()
+	private void StartNewTurn ()
 	{
 		gameState = GameState.StartingTurn;
-		miniGamesManager.GetRewards ();
 		miniGamesManager.EndMiniGame ();
 	}
 
 	private void ExecuteAction ()
 	{
-		CurrentSquare.Execute ();
+		if(CurrentSquare.IsLast)
+			FinishBoard ();
+		else
+			CurrentSquare.Execute ();
+	}
+
+	private void FinishBoard ()
+	{
+		character.StartCelebration ();
 	}
 
 	private void TryToMove ()
@@ -134,7 +155,6 @@ public class Board : MonoBehaviour
 		if (squaresToSteps != null && squaresToSteps.Count > 0) 
 		{
 			character.MoveTo (squaresToSteps [0].Position);
-
 			float distance = squaresToSteps.Count == 1 ? minDistanceLastSquare : minDistance;
 
 			if (character.GetDistance(squaresToSteps[0]) < distance)
@@ -166,10 +186,19 @@ public class Board : MonoBehaviour
 	private void StartMovingCharacter ()
 	{
 		int moveSteps = dice.Value;
-		squaresToSteps = GetSquareRange (currentIndexSquare, moveSteps);
-		currentIndexSquare+= moveSteps;
+		bool isBiggerThanCount = currentIndexSquare+moveSteps > squares.Count;
+		int maxRange =  isBiggerThanCount? squares.Count : moveSteps ; 
+		squaresToSteps = GetSquareRange (currentIndexSquare, maxRange);
+		SetCurrentSquare (moveSteps, isBiggerThanCount);
 		this.gameState = GameState.MovingTurn;
-		dice.Hide ();
+	}
+
+	private void SetCurrentSquare (int moveSteps, bool isBiggerThanCount)
+	{
+		if (isBiggerThanCount)
+			currentIndexSquare = squares.Count;
+		else
+			currentIndexSquare += moveSteps;
 	}
 
 	private List<Square> GetSquareRange ( int min, int count)

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Dice: MonoBehaviour 
+public class Dice : MonoBehaviour 
 {
 	[SerializeField]
 	private bool canRotate = false;
@@ -17,6 +17,7 @@ public class Dice: MonoBehaviour
 	private Vector3 directionPoint = Vector3.one;
 	private Quaternion currentRotation = new Quaternion ();
 	private Vector3 initialScale;
+	private GameState gameState;
 
 	public int Value
 	{
@@ -27,6 +28,11 @@ public class Dice: MonoBehaviour
 	public void Position ( Vector3 position)
 	{
 		myTransform.position = position;
+	}
+
+	public void UpdateGameState (GameState gameState)
+	{
+		this.gameState = gameState;
 	}
 
 	public void Throw ()
@@ -47,7 +53,7 @@ public class Dice: MonoBehaviour
 	public void Stop ()
 	{
 		canRotate = false;
-		Value = Random.Range(1,6);
+		Value = 4;//Random.Range(1,6);
 		currentRotation.eulerAngles = diceValue [ Value - 1];
 	}
 
@@ -59,10 +65,20 @@ public class Dice: MonoBehaviour
 
 	private void Update () 
 	{
+		CheckVisibility ();
+
 		if (canRotate)
 			Rotate ();
 		else
 			myTransform.rotation = Quaternion.Slerp(myTransform.rotation,currentRotation,Time.deltaTime * velocity);
+	}
+
+	private void CheckVisibility ()
+	{
+		if(gameState == GameState.StartingTurn)
+			this.Show ();
+		else
+			this.Hide ();
 	}
 
 	private void Rotate ()

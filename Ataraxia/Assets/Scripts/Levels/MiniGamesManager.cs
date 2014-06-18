@@ -28,15 +28,23 @@ public class MiniGamesManager
 
 	public void EndMiniGame ()
 	{
+		CurrentMiniGame.state = MiniGameState.NotPlayed;
 		CurrentMiniGame = null;
 	}
 
-	public void GetRewards ()
+	public void GetRewards (Character character , Action callback)
 	{
 		if(CurrentMiniGame.state == MiniGameState.Lost)
-			Debug.Log ("Show failed");
+		{
+			callback ();
+			character.StartLose ();
+		}
 		else if(CurrentMiniGame.state == MiniGameState.Won)
-			Debug.Log ("Getrewards");
+		{
+			character.StartCelebration ();
+			UIMessage.Instance.Show(CurrentMiniGame.messageReward);
+			UIMessage.Instance.OnAccepted = callback;
+		}
 	}
 
 	public string GetMiniGame () 

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MiniGameManagerBase : MonoBehaviour 
+public abstract class MiniGameManagerBase : MonoBehaviour 
 {
 	[SerializeField]
 	protected UIMessageDescriptor initialExplaining;
@@ -12,8 +12,12 @@ public class MiniGameManagerBase : MonoBehaviour
 	[SerializeField]
 	protected UIMessageDescriptor loseMessage;
 
+	protected abstract bool HasWonGame ();
+
 	protected void LoadBoard ()
 	{
+		MiniGameState miniGameState = HasWonGame () ? MiniGameState.Won : MiniGameState.Lost;
+		BoardData.Instance.FinishMiniGame (miniGameState);
 		LevelLoader.Instance.LoadScene(LevelLoader.LEVEL_1);
 	}
 }

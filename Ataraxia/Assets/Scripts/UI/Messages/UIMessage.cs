@@ -2,12 +2,8 @@
 using UnityEngine;
 using System.Collections;
 
-public class UIMessage : MonoBehaviour , IUIMessage
+public class UIMessage : UIMessageBase , IUIMessage
 {
-	[SerializeField]
-	protected UIPanel panel;
-	[SerializeField]
-	protected AtaraxiaText text;
 	[SerializeField]
 	private UIButton acceptButton;
 	[SerializeField]
@@ -15,7 +11,6 @@ public class UIMessage : MonoBehaviour , IUIMessage
 	[SerializeField]
 	private UIMessageDescriptor defaultMessage;
 	public UIMessageDescriptor doYouWannaGoToLevel;
-	public Action OnAccepted;
 
 	public static UIMessage Instance
 	{
@@ -34,10 +29,8 @@ public class UIMessage : MonoBehaviour , IUIMessage
 
 	private void AddButtonsDelegates ()
 	{
-		if(acceptButton != null)
-			acceptButton.AddInputDelegate (Close);
-		if(cancelButton != null)
-			cancelButton.AddInputDelegate (Cancel);
+		acceptButton.AddInputDelegate (Close);
+		cancelButton.AddInputDelegate (Cancel);
 	}
 
 	private void Cancel (ref POINTER_INFO ptr)
@@ -56,11 +49,10 @@ public class UIMessage : MonoBehaviour , IUIMessage
 		}
 	}
 
-	public void Show (UIMessageDescriptor message)
+	public override void Show (UIMessageDescriptor message)
 	{
-		text.Text = message.message;
-		panel.BringIn ();
-		if(!message.isButtonCancelVisible && acceptButton != null)
+		base.Show(message);
+		if(!message.isButtonCancelVisible)
 			SetOnlyButtonAccept ();
 	}
 
@@ -70,11 +62,10 @@ public class UIMessage : MonoBehaviour , IUIMessage
 		acceptButton.transform.localPosition = new Vector3 (0.0f, 30f, 0.9f);
 	}
 
-	public void Hide ()
+	public override void Hide ()
 	{
-		panel.Dismiss ();
-		if(acceptButton != null)
-			ResetButtonAccept ();
+		base.Hide ();
+		ResetButtonAccept ();
 	}
 
 	private void ResetButtonAccept ()

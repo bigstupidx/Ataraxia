@@ -14,4 +14,5 @@ public class MiniGameData : MonoBehaviour
 {
 	public string miniGameName;
 	public MiniGameState state = MiniGameState.NotPlayed;
+	public UIMessageDescriptor messageReward;
 }

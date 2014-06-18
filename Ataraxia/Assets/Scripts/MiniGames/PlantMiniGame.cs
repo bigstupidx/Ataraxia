@@ -13,6 +13,11 @@ public class PlantMiniGame : MiniGameManagerBase , IMiniGame
 	private PlantsManager plantsManager;
 	private bool isStartGame = false;
 
+	protected override bool HasWonGame ()
+	{
+		return plantsManager.HasWonGame;
+	}
+
 	private void Start ()
 	{
 		StartExplaining ();
@@ -39,7 +44,7 @@ public class PlantMiniGame : MiniGameManagerBase , IMiniGame
 
 	public void GameIsOver ()
 	{
-		if(plantsManager.HasWonGame)
+		if(HasWonGame ())
 			Invoke(Helpers.NameOf( ShowCelebration),1.5F);
 		else
 			Invoke(Helpers.NameOf( ShowFailed),1.5F);

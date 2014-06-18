@@ -10,9 +10,27 @@ public class BoardData : MonoBehaviour
 	public int minigamesViewed;
 	public int indexMiniGame;
 
+	public static BoardData Instance
+	{
+		get;
+		private set;
+	}
+
 	private void Awake ()
 	{
-		DontDestroyOnLoad (this.gameObject);
+		if(Instance == null)
+		{
+			Instance = this;
+			DontDestroyOnLoad (this.gameObject);
+		}
+		else
+			Unload ();
+	}
+
+	public void FinishMiniGame ( MiniGameState state )
+	{
+		this.miniGameState = state;
+		gameState = GameState.GiveRewards;
 	}
 
 	public void SetMiniGamesData (int miniGamesViewed, int currentGameIndex)

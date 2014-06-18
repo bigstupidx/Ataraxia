@@ -4,7 +4,10 @@ using System.Collections.Generic;
 
 public enum SceneDialogType
 {
-	Welcome = 0
+	Welcome = 0,
+	StartJungle = 1,
+	FinishJungle = 2,
+	BackToFuture = 3
 }
 
 public abstract class TakeManagerBase : MonoBehaviour 
