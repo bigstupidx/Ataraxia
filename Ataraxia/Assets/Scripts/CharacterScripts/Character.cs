@@ -43,6 +43,11 @@ public class Character : MonoBehaviour
 		animationManager = new AnimationManager (animation);
 	}
 
+	public void StartCelebrationLoop ()
+	{
+		Animation anim = animationManager.Play( AnimationManager.CELEBRATION);
+	}
+
 	public void StartCelebration ()
 	{
 		Animation anim = animationManager.Play( AnimationManager.CELEBRATION);

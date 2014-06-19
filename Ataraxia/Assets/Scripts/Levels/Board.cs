@@ -153,7 +153,7 @@ public class Board : MonoBehaviour
 
 	private void FinishBoard ()
 	{
-		character.StartCelebration ();
+		character.StartCelebrationLoop ();
 	}
 
 	private void TryToMove ()
