@@ -26,7 +26,7 @@ public class Timer : MonoBehaviour
 
 	public float TotalTime
 	{
-		get{return totalTime;}
+		get{ return totalTime; }
 	}
 
 	public void StartTimer ()
@@ -58,7 +58,8 @@ public class Timer : MonoBehaviour
 
 	private void CountDown ()
 	{
-		if (IsTimeOver) {
+		if (IsTimeOver) 
+		{
 			label.Text = string.Empty;
 			return;
 		}

@@ -28,6 +28,11 @@ public class Character : MonoBehaviour
 		get{ return character.HasArrivedToTargetPoint;}
 	}
 
+	public bool IsWaitingToCatch 
+	{
+		get{ return animationManager.IsPlaying(AnimationManager.FISHING); }
+	}
+
 	private void Start ()
 	{
 		initialRotation = Quaternion.identity;
@@ -48,10 +53,22 @@ public class Character : MonoBehaviour
 		Animation anim = animationManager.Play( AnimationManager.CELEBRATION);
 	}
 
+	public void Catch ()
+	{
+		Animation anim = animationManager.Play( AnimationManager.CATCH);
+		Invoke(Helpers.NameOf(RestartToIdleFishing), anim[AnimationManager.CATCH].length);
+	}
+
+	private void RestartToIdleFishing ()
+	{
+		animationManager.Play( AnimationManager.FISHING);
+	}
+
 	public void StartCelebration ()
 	{
 		Animation anim = animationManager.Play( AnimationManager.CELEBRATION);
-		Invoke(Helpers.NameOf(RestarToIdle), anim[AnimationManager.CELEBRATION].length);
+		if(anim != null && anim[AnimationManager.CELEBRATION] != null)
+			Invoke(Helpers.NameOf(RestarToIdle), anim[AnimationManager.CELEBRATION].length);
 	}
 
 	public void StartLose ()
