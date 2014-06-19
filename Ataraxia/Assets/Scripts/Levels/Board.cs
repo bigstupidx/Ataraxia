@@ -58,7 +58,10 @@ public class Board : MonoBehaviour
 	{
 		BoardData boardData = FindObjectOfType<BoardData> ();
 		if(boardData != null)
+		{
+			StartGame ();
 			GetBoardData (boardData);
+		}
 		else
 			gameState = GameState.Dialog;
 	}
@@ -83,7 +86,7 @@ public class Board : MonoBehaviour
 	{
 		currentIndexSquare = boardData.currentSquare;
 		gameState = boardData.gameState;
-		character.PositionTo (boardData.currentCharacterPosition);
+		character.PositionTo (boardData.currentCharacterPosition + (Vector3.up*2));
 		MiniGamesManager.SetMiniGameByIndex (boardData.indexMiniGame,boardData.miniGameState,boardData.minigamesViewed);
 		boardData.Unload ();
 	}
@@ -114,7 +117,7 @@ public class Board : MonoBehaviour
 
 	public void GoBackward (int range , Square square)
 	{
-		character.PositionTo(square.Position);
+		character.PositionTo(square.Position + (Vector3.up));
 		currentIndexSquare -= range;
 		gameState = GameState.EndTurn;
 	}

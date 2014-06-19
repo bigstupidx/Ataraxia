@@ -53,7 +53,7 @@ public class Dice : MonoBehaviour
 	public void Stop ()
 	{
 		canRotate = false;
-		Value = 4;//Random.Range(1,6);
+		Value = Random.Range(1,6);
 		currentRotation.eulerAngles = diceValue [ Value - 1];
 	}
 

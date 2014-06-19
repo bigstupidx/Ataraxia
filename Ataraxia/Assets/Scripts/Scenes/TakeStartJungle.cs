@@ -11,7 +11,10 @@ public class TakeStartJungle : TakeManagerBase
 	private void Start ()
 	{
 		if(UserData.HasDialogTypeFinished(sceneDialogType))
+		{
+			ManageBochicaPosition ();
 			this.enabled = false;
+		}
 		else
 			this.StartScene ();
 	}
