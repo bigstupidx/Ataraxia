@@ -35,7 +35,7 @@ public class LevelLoader : MonoBehaviour
 
 	public bool IsMainRoomScene
 	{
-		get{ return currentScene == MENU; }
+		get{ return currentScene == MENU || currentScene == MENU2; }
 	}
 	
 	public void LoadPendingScene()

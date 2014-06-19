@@ -14,4 +14,9 @@ public class UserData
 	{
 		PlayerPrefs.SetInt(SCENE + type,1);
 	}
+
+	public static void ClearDialog (SceneDialogType type)
+	{
+		PlayerPrefs.DeleteKey(SCENE + type);
+	}
 }	

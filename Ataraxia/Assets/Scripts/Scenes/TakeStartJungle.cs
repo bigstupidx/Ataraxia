@@ -10,7 +10,15 @@ public class TakeStartJungle : TakeManagerBase
 
 	private void Start ()
 	{
-		this.StartScene ();
+		if(UserData.HasDialogTypeFinished(sceneDialogType))
+			this.enabled = false;
+		else
+			this.StartScene ();
+	}
+
+	private void OnApplicationQuit ()
+	{
+		UserData.ClearDialog(sceneDialogType);
 	}
 
 	protected override void EndScene ()

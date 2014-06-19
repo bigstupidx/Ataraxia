@@ -12,6 +12,7 @@ public enum MiniGameState
 
 public class MiniGameData : MonoBehaviour
 {
+	public bool isSpecialLevel;
 	public string miniGameName;
 	public MiniGameState state = MiniGameState.NotPlayed;
 	public UIMessageDescriptor messageReward;
