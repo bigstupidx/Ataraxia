@@ -1,18 +1,14 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Levels\Board.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/MiniGames/Hidden/HiddenManager.cs">
     <Files>
-      <File FileName="Assets\Scripts\Levels\Board.cs" Line="46" Column="49" />
-      <File FileName="Assets\Scripts\Levels\MiniGamesManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Levels\MiniGameData.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Dice\Dice.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Levels\Square.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Levels\SquareMoveForwards.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Levels\SquareMoveBackwards.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\CharacterScripts\Character.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Scenes\WelcomeScene\TakeWelcome.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Scenes\TakeFinishJungle.cs" Line="4" Column="42" />
-      <File FileName="Assets\Scripts\Scenes\TakeManagerBase.cs" Line="10" Column="18" />
+      <File FileName="Assets/Scripts/MiniGames/HidingMiniGame.cs" Line="13" Column="16" />
+      <File FileName="Assets/Scripts/MiniGames/PlantMiniGame.cs" Line="4" Column="58" />
+      <File FileName="Assets/Scripts/MiniGames/Hidden/HiddenManager.cs" Line="44" Column="43" />
+      <File FileName="Assets/Scripts/MiniGames/Hidden/HidingPlace.cs" Line="12" Column="2" />
+      <File FileName="Assets/Scripts/MiniGames/MiniGameManagerBase.cs" Line="34" Column="21" />
+      <File FileName="Assets/Scripts/MiniGames/IMiniGame.cs" Line="6" Column="19" />
+      <File FileName="Assets/Scripts/MiniGames/Plants/Timer.cs" Line="46" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -15,7 +15,13 @@ public class Timer : MonoBehaviour
 	private bool isTimeStart = false;
 	public bool IsTimeOver
 	{
-		get{ return (int)storedTime == (int)totalTime+1;}
+		get
+		{
+			if(isDecreaseTime)
+				return currentTime <= 0;
+			else
+				return currentTime >= totalTime;
+		}
 	}
 
 	public float TotalTime
@@ -29,6 +35,14 @@ public class Timer : MonoBehaviour
 		if(isDecreaseTime)
 			currentTime = totalTime;
 		CreateDelay ();
+	}
+
+	public void Stop ()
+	{
+		if(isDecreaseTime)
+			currentTime = 0;
+		else
+			currentTime = totalTime;
 	}
 
 	private void CreateDelay ()

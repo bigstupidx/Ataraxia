@@ -1,0 +1,186 @@
+fileFormatVersion: 2
+guid: aa9cc3f79bbda4f02a9b67db22261307
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: NPC_Char Bip
+    100002: NPC_Char Bip Head
+    100004: NPC_Char Bip Jaw
+    100006: NPC_Char Bip L Calf
+    100008: NPC_Char Bip L Clavicle
+    100010: NPC_Char Bip L Finger0
+    100012: NPC_Char Bip L Finger01
+    100014: NPC_Char Bip L Finger02
+    100016: NPC_Char Bip L Finger1
+    100018: NPC_Char Bip L Finger11
+    100020: NPC_Char Bip L Finger12
+    100022: NPC_Char Bip L Finger2
+    100024: NPC_Char Bip L Finger21
+    100026: NPC_Char Bip L Finger22
+    100028: NPC_Char Bip L Finger3
+    100030: NPC_Char Bip L Finger31
+    100032: NPC_Char Bip L Finger32
+    100034: NPC_Char Bip L Finger4
+    100036: NPC_Char Bip L Finger41
+    100038: NPC_Char Bip L Finger42
+    100040: NPC_Char Bip L Foot
+    100042: NPC_Char Bip L Forearm
+    100044: NPC_Char Bip L Hand
+    100046: NPC_Char Bip L Thigh
+    100048: NPC_Char Bip L Toe0
+    100050: NPC_Char Bip L UpperArm
+    100052: NPC_Char Bip Neck
+    100054: NPC_Char Bip Pelvis
+    100056: NPC_Char Bip R Calf
+    100058: NPC_Char Bip R Clavicle
+    100060: NPC_Char Bip R Finger0
+    100062: NPC_Char Bip R Finger01
+    100064: NPC_Char Bip R Finger02
+    100066: NPC_Char Bip R Finger1
+    100068: NPC_Char Bip R Finger11
+    100070: NPC_Char Bip R Finger12
+    100072: NPC_Char Bip R Finger2
+    100074: NPC_Char Bip R Finger21
+    100076: NPC_Char Bip R Finger22
+    100078: NPC_Char Bip R Finger3
+    100080: NPC_Char Bip R Finger31
+    100082: NPC_Char Bip R Finger32
+    100084: NPC_Char Bip R Finger4
+    100086: NPC_Char Bip R Finger41
+    100088: NPC_Char Bip R Finger42
+    100090: NPC_Char Bip R Foot
+    100092: NPC_Char Bip R Forearm
+    100094: NPC_Char Bip R Hand
+    100096: NPC_Char Bip R Thigh
+    100098: NPC_Char Bip R Toe0
+    100100: NPC_Char Bip R UpperArm
+    100102: NPC_Char Bip Spine
+    100104: NPC_Char Bip Spine1
+    100106: NPC_Char Facial_Point
+    100108: NPC_Char Facial_Rig_Lt_Dwn_EyeLid
+    100110: NPC_Char Facial_Rig_Lt_Eyebrow
+    100112: NPC_Char Facial_Rig_Lt_Up_EyeLid
+    100114: NPC_Char Facial_Rig_Rt_Dwn_EyeLid
+    100116: NPC_Char Facial_Rig_Rt_Eyebrow
+    100118: NPC_Char Facial_Rig_Rt_Up_EyeLid
+    100120: NPC_Char_Mesh
+    100122: //RootNode
+    400000: NPC_Char Bip
+    400002: NPC_Char Bip Head
+    400004: NPC_Char Bip Jaw
+    400006: NPC_Char Bip L Calf
+    400008: NPC_Char Bip L Clavicle
+    400010: NPC_Char Bip L Finger0
+    400012: NPC_Char Bip L Finger01
+    400014: NPC_Char Bip L Finger02
+    400016: NPC_Char Bip L Finger1
+    400018: NPC_Char Bip L Finger11
+    400020: NPC_Char Bip L Finger12
+    400022: NPC_Char Bip L Finger2
+    400024: NPC_Char Bip L Finger21
+    400026: NPC_Char Bip L Finger22
+    400028: NPC_Char Bip L Finger3
+    400030: NPC_Char Bip L Finger31
+    400032: NPC_Char Bip L Finger32
+    400034: NPC_Char Bip L Finger4
+    400036: NPC_Char Bip L Finger41
+    400038: NPC_Char Bip L Finger42
+    400040: NPC_Char Bip L Foot
+    400042: NPC_Char Bip L Forearm
+    400044: NPC_Char Bip L Hand
+    400046: NPC_Char Bip L Thigh
+    400048: NPC_Char Bip L Toe0
+    400050: NPC_Char Bip L UpperArm
+    400052: NPC_Char Bip Neck
+    400054: NPC_Char Bip Pelvis
+    400056: NPC_Char Bip R Calf
+    400058: NPC_Char Bip R Clavicle
+    400060: NPC_Char Bip R Finger0
+    400062: NPC_Char Bip R Finger01
+    400064: NPC_Char Bip R Finger02
+    400066: NPC_Char Bip R Finger1
+    400068: NPC_Char Bip R Finger11
+    400070: NPC_Char Bip R Finger12
+    400072: NPC_Char Bip R Finger2
+    400074: NPC_Char Bip R Finger21
+    400076: NPC_Char Bip R Finger22
+    400078: NPC_Char Bip R Finger3
+    400080: NPC_Char Bip R Finger31
+    400082: NPC_Char Bip R Finger32
+    400084: NPC_Char Bip R Finger4
+    400086: NPC_Char Bip R Finger41
+    400088: NPC_Char Bip R Finger42
+    400090: NPC_Char Bip R Foot
+    400092: NPC_Char Bip R Forearm
+    400094: NPC_Char Bip R Hand
+    400096: NPC_Char Bip R Thigh
+    400098: NPC_Char Bip R Toe0
+    400100: NPC_Char Bip R UpperArm
+    400102: NPC_Char Bip Spine
+    400104: NPC_Char Bip Spine1
+    400106: NPC_Char Facial_Point
+    400108: NPC_Char Facial_Rig_Lt_Dwn_EyeLid
+    400110: NPC_Char Facial_Rig_Lt_Eyebrow
+    400112: NPC_Char Facial_Rig_Lt_Up_EyeLid
+    400114: NPC_Char Facial_Rig_Rt_Dwn_EyeLid
+    400116: NPC_Char Facial_Rig_Rt_Eyebrow
+    400118: NPC_Char Facial_Rig_Rt_Up_EyeLid
+    400120: NPC_Char_Mesh
+    400122: //RootNode
+    4300000: NPC_Char_Mesh
+    9500000: //RootNode
+    13700000: NPC_Char_Mesh
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 

@@ -4,8 +4,6 @@ using System.Collections;
 public class PlantMiniGame : MiniGameManagerBase , IMiniGame
 {
 	[SerializeField]
-	private Character character;
-	[SerializeField]
 	private GameObject containerGame;
 	[SerializeField]
 	private Timer timer;
@@ -18,21 +16,9 @@ public class PlantMiniGame : MiniGameManagerBase , IMiniGame
 		return plantsManager.HasWonGame;
 	}
 
-	private void Start ()
+	protected override void StartGame ()
 	{
-		StartExplaining ();
-	}
-
-	public void StartExplaining ()
-	{
-		UIMessage.Instance.Show(this.initialExplaining);
-		UIMessage.Instance.OnAccepted = ExplainingRules;
-	}
-
-	public void ExplainingRules ()
-	{
-		UIMessage.Instance.Show(this.gameExplaining);
-		UIMessage.Instance.OnAccepted = StartPlaying;
+		StartPlaying ();
 	}
 
 	public void StartPlaying ()
@@ -49,20 +35,6 @@ public class PlantMiniGame : MiniGameManagerBase , IMiniGame
 		else
 			Invoke(Helpers.NameOf( ShowFailed),1.5F);
 		containerGame.SetActive (false);
-	}
-
-	private void ShowCelebration ()
-	{
-		UIMessage.Instance.Show(this.winMessage);
-		UIMessage.Instance.OnAccepted = LoadBoard;
-		character.StartCelebration ();
-	}
-
-	private void ShowFailed ()
-	{
-		UIMessage.Instance.Show(this.loseMessage);
-		UIMessage.Instance.OnAccepted = LoadBoard;
-		character.StartLose ();
 	}
 
 	private void Update ()

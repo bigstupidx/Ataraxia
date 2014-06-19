@@ -7,17 +7,22 @@ public class HidingPlace : MonoBehaviour
 {
 	[SerializeField]
 	private Transform placeToSaveCharacter;
+	private Transform character;
 	public Action <HidingPlace> PressedPlace;
+
+	public Transform Character
+	{
+		get{return character;}
+	}
 
 	public bool HasCharacterHidden
 	{
-		get;
-		private set;
+		get { return placeToSaveCharacter.childCount > 0; }
 	}
 
 	public void HideCharacter ( Transform transform )
 	{
-		HasCharacterHidden = true;
+		character = transform;
 		transform.parent = placeToSaveCharacter;
 		transform.localPosition = Vector3.zero;
 	}
