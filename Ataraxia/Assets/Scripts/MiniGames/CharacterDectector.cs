@@ -4,6 +4,12 @@ using System.Collections;
 public class CharacterDectector : MonoBehaviour 
 {
 	private Transform myTransform;
+	public Character Character
+	{
+		get;
+		private set;
+	}
+
 	public bool CanWatering
 	{
 		get;
@@ -22,15 +28,15 @@ public class CharacterDectector : MonoBehaviour
 
 	private void OnTriggerEnter (Collider obj)
 	{
-		Character character = obj.GetComponent<Character> ();
-		if(character != null)
+		Character = obj.GetComponent<Character> ();
+		if(Character != null)
 			CanWatering = true;
 	}
 
 	private void OnTriggerExit(Collider obj)
 	{
-		Character character = obj.GetComponent<Character> ();
-		if(character != null)
+		Character = obj.GetComponent<Character> ();
+		if(Character != null)
 			CanWatering = false;
 	} 
 }

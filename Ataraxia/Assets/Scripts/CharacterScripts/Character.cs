@@ -77,6 +77,11 @@ public class Character : MonoBehaviour
 		Invoke(Helpers.NameOf(RestarToIdle), anim[AnimationManager.LOSE].length);
 	}
 
+	public void Watering ()
+	{
+		animationManager.Play(AnimationManager.WATERING);
+	}
+
 	public void StartCounting (float time)
 	{
 		animationManager.Play( AnimationManager.COUNT);

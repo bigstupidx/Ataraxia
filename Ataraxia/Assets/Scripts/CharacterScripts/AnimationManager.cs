@@ -13,6 +13,7 @@ public class AnimationManager
 	public const string WALK = "Walk";
 	public const string FISHING = "Fishing_Idle";
 	public const string CATCH = "Fishing_Catch";
+	public const string WATERING = "Watering";
 
 
 	private Animation animation;

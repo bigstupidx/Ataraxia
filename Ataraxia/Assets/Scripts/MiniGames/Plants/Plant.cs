@@ -29,6 +29,7 @@ public class Plant : MonoBehaviour
 	public Action Deteriorated;
 	public Action Healed;
 	public Action<Vector3,Plant> GetWateringPosition;
+	private bool isTouching = false;
 
 	public Vector3 Position
 	{
@@ -76,6 +77,24 @@ public class Plant : MonoBehaviour
 			Deteriorate ();
 			ChangeMorp ();
 		}
+
+		CheckIsTouching ();
+
+		if(isTouching)
+			TryToGetWatering ();
+	}
+
+	private void CheckIsTouching ()
+	{
+		if (!isTouching)
+			Helpers.IsTouchingThisObject (myTransform,out isTouching);
+
+		if (Helpers.IsntTouchingScreen ())
+		{
+			if(isTouching && characterDetector.Character != null)
+				characterDetector.Character.RestarToIdle ();
+			isTouching = false;
+		}
 	}
 
 	private void Deteriorate ()
@@ -104,7 +123,7 @@ public class Plant : MonoBehaviour
 			Healed ();
 	}
 
-	private void OnMouseDown ()
+	private void TryToGetWatering ()
 	{
 		if (characterDetector.CanWatering)
 			Recovery ();
@@ -114,6 +133,8 @@ public class Plant : MonoBehaviour
 
 	private void Recovery ()
 	{
+		if( characterDetector.Character != null)
+			characterDetector.Character.Watering ();
 		Heal ();
 		ChangeMorp ();
 	}

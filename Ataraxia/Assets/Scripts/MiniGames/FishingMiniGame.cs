@@ -25,15 +25,19 @@ public class FishingMiniGame : MiniGameManagerBase , IMiniGame
 	{
 		get{ return itemsCatched;}
 	}
+
 	public bool CanFishing
 	{
-		get{ return areaToFishing.CurrentItemCollisioning != null && !timer.IsTimeOver && isStartGame;}
+		get
+		{ 
+			return  areaToFishing.CurrentItemCollisioning != null && 
+					!timer.IsTimeOver && isStartGame && character.IsWaitingToCatch;
+		}
 	}
-	
 
 	protected override bool HasWonGame ()
 	{
-		return itemsCatched >= itemsCatched;
+		return itemsCatched >= minItemsToCatch;
 	}
 
 	protected override void StartGame ()
