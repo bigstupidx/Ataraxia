@@ -7,7 +7,8 @@ public enum SceneDialogType
 	Welcome = 0,
 	StartJungle = 1,
 	FinishJungle = 2,
-	BackToFuture = 3
+	BackToFuture = 3,
+	GiveCristal = 4
 }
 
 public abstract class TakeManagerBase : MonoBehaviour 

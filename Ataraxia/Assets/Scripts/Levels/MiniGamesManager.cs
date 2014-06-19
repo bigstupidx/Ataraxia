@@ -6,6 +6,7 @@ using System.Collections.Generic;
 [Serializable]
 public class MiniGamesManager
 {
+	public MiniGameData specialLevel;
 	public List<MiniGameData> miniGames;
 	private int miniGamesView = 0;
 

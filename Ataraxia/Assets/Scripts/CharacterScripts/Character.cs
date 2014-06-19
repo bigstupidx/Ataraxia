@@ -66,7 +66,7 @@ public class Character : MonoBehaviour
 		Invoke(Helpers.NameOf(RestarToIdle),time);
 	}
 
-	private void RestarToIdle ()
+	public void RestarToIdle ()
 	{
 		animationManager.Play(AnimationManager.IDLE);
 	}
