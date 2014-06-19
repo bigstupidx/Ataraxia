@@ -7,5 +7,6 @@ public enum GameState
 	MovingTurn = 1,
 	EndTurn = 2,
 	ExecuteAction = 3,
-	GiveRewards = 4
+	GiveRewards = 4,
+	Dialog = 5
 }

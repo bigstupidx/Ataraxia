@@ -12,6 +12,9 @@ public class CameraFollowCharacter : MonoBehaviour
 
 	private void Update ()
 	{
+		if(Board.Instance.GameState == GameState.Dialog)
+			return;
+
 		myTransform.position = new Vector3(target.position.x, myTransform.position.y, target.position.z - distance);
 		myTransform.LookAt(target);
 	}

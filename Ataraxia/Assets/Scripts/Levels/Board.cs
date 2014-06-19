@@ -54,6 +54,12 @@ public class Board : MonoBehaviour
 
 	private void Start ()
 	{
+		gameState = GameState.Dialog;
+	}
+
+	public void StartGame ()
+	{
+		gameState = GameState.StartingTurn;
 		squares = GetSquares ();
 		dice.Throw ();
 		BoardData boardData = FindObjectOfType<BoardData> ();
@@ -167,7 +173,7 @@ public class Board : MonoBehaviour
 
 	private void OnGUI ()
 	{
-		if(miniGamesManager.CurrentMiniGame != null)
+		if(miniGamesManager.CurrentMiniGame != null || gameState == GameState.Dialog)
 			return;
 
 		if(GUI.Button(new Rect(0F,0F,150F,25F),"Throw Dice"))

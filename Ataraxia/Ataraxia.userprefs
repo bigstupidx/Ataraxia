@@ -1,14 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/MiniGames/Hidden/HiddenManager.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Scenes\TakeScene.cs">
     <Files>
-      <File FileName="Assets/Scripts/MiniGames/HidingMiniGame.cs" Line="13" Column="16" />
-      <File FileName="Assets/Scripts/MiniGames/PlantMiniGame.cs" Line="4" Column="58" />
-      <File FileName="Assets/Scripts/MiniGames/Hidden/HiddenManager.cs" Line="44" Column="43" />
-      <File FileName="Assets/Scripts/MiniGames/Hidden/HidingPlace.cs" Line="12" Column="2" />
-      <File FileName="Assets/Scripts/MiniGames/MiniGameManagerBase.cs" Line="34" Column="21" />
-      <File FileName="Assets/Scripts/MiniGames/IMiniGame.cs" Line="6" Column="19" />
-      <File FileName="Assets/Scripts/MiniGames/Plants/Timer.cs" Line="46" Column="3" />
+      <File FileName="Assets\Scripts\Scenes\TakeStartJungle.cs" Line="11" Column="23" />
+      <File FileName="Assets\Scripts\Scenes\WelcomeScene\TakeWelcome.cs" Line="17" Column="14" />
+      <File FileName="Assets\Scripts\Scenes\TakeScene.cs" Line="46" Column="42" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -43,6 +43,9 @@ public abstract class TakeScene : MonoBehaviour
 	
 	protected virtual void StartDialog ()
 	{
-		Menu.Instance.dialogMessage.Show(dialog,EndTake);
+		if(LevelLoader.Instance.IsMainRoomScene)
+			Menu.Instance.dialogMessage.Show(dialog,EndTake);
+		else
+			UIGame.Instance.UIDialogMessage.Show(dialog,EndTake);
 	}
 }
