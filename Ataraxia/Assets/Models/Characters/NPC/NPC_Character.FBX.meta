@@ -65,6 +65,7 @@ ModelImporter:
     100118: NPC_Char Facial_Rig_Rt_Up_EyeLid
     100120: NPC_Char_Mesh
     100122: //RootNode
+    100124: NPC_Character_Mesh
     400000: NPC_Char Bip
     400002: NPC_Char Bip Head
     400004: NPC_Char Bip Jaw
@@ -127,9 +128,14 @@ ModelImporter:
     400118: NPC_Char Facial_Rig_Rt_Up_EyeLid
     400120: NPC_Char_Mesh
     400122: //RootNode
+    400124: NPC_Character_Mesh
     4300000: NPC_Char_Mesh
+    4300002: NPC_Character_Mesh
+    7400000: Take 001
     9500000: //RootNode
+    11100000: //RootNode
     13700000: NPC_Char_Mesh
+    13700002: NPC_Character_Mesh
   materials:
     importMaterials: 1
     materialName: 0
@@ -138,7 +144,6 @@ ModelImporter:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
     optimizeGameObjects: 0
-    motionNodeName: 
     animationCompression: 1
     animationRotationError: .5
     animationPositionError: .5
@@ -179,8 +184,8 @@ ModelImporter:
     armStretch: .0500000007
     legStretch: .0500000007
     feetSpacing: 0
-    rootMotionBoneName: 
+    rootMotionBoneName: NPC_Char Bip
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 1
   additionalBone: 0
   userData: 
