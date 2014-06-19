@@ -5,6 +5,8 @@ using System.Collections.Generic;
 public class Board : MonoBehaviour 
 {
 	[SerializeField]
+	private TakeFinishJungle finishJungle;
+	[SerializeField]
 	private float minDistanceLastSquare = 1.51F;
 	[SerializeField]
 	private float minDistance = 1.51F;
@@ -23,7 +25,7 @@ public class Board : MonoBehaviour
 	private int currentIndexSquare = 0;
 	private List<Square> squaresToSteps;
 	private GameState gameState = GameState.StartingTurn;
-	
+
 	public MiniGamesManager MiniGamesManager
 	{
 		get {return miniGamesManager;}
@@ -54,7 +56,11 @@ public class Board : MonoBehaviour
 
 	private void Start ()
 	{
-		gameState = GameState.Dialog;
+		BoardData boardData = FindObjectOfType<BoardData> ();
+		if(boardData != null)
+			GetBoardData (boardData);
+		else
+			gameState = GameState.Dialog;
 	}
 
 	public void StartGame ()
@@ -62,9 +68,6 @@ public class Board : MonoBehaviour
 		gameState = GameState.StartingTurn;
 		squares = GetSquares ();
 		dice.Throw ();
-		BoardData boardData = FindObjectOfType<BoardData> ();
-		if(boardData != null)
-			GetBoardData (boardData);
 	}
 
 	private List<Square> GetSquares ()
@@ -92,9 +95,19 @@ public class Board : MonoBehaviour
 		boardData.SetMiniGamesData( miniGamesManager.MiniGamesViewed,miniGamesManager.CurrentGameIndex);
 	}
 
+	public void LoadSpecialGame ()
+	{
+		LoadScene (miniGamesManager.specialLevel.miniGameName);
+	}
+
 	public void LoadMiniGame ()
 	{
 		string miniGameName = miniGamesManager.GetMiniGame ();
+		LoadScene (miniGameName);
+	}
+
+	private void LoadScene (string miniGameName)
+	{
 		SetBoardData ();
 		LevelLoader.Instance.LoadScene (miniGameName);
 	}
@@ -154,6 +167,12 @@ public class Board : MonoBehaviour
 	private void FinishBoard ()
 	{
 		character.StartCelebrationLoop ();
+		Invoke(Helpers.NameOf ( LoadDialogStartRunner ), 3F);
+	}
+
+	private void LoadDialogStartRunner ()
+	{
+		finishJungle.Play ();
 	}
 
 	private void TryToMove ()
