@@ -1,17 +1,19 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Levels/Board.cs">
     <Files>
       <File FileName="Assets/Scripts/MiniGames/PlantMiniGame.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Levels/SquareMoveBackwards.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/CharacterScripts/Character.cs" Line="109" Column="42" />
-      <File FileName="Assets/Scripts/CharacterScripts/CharacterMoveToPoint.cs" Line="23" Column="17" />
-      <File FileName="Assets/Scripts/MiniGames/Runner/Path.cs" Line="8" Column="10" />
-      <File FileName="Assets/Scripts/MiniGames/Runner/RunnerManager.cs" Line="25" Column="3" />
-      <File FileName="Assets/Scripts/MiniGames/CharacterDectector.cs" Line="46" Column="3" />
-      <File FileName="Assets/Scripts/MiniGames/Runner/RunnerMiniGame.cs" Line="21" Column="30" />
-      <File FileName="Assets/Scripts/MiniGames/FishingMiniGame.cs" Line="95" Column="3" />
-      <File FileName="Assets/Scripts/Levels/Board.cs" Line="184" Column="15" />
+      <File FileName="Assets/Scripts/CharacterScripts/Character.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/CharacterScripts/CharacterMoveToPoint.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/MiniGames/Runner/Path.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/MiniGames/Runner/RunnerManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/MiniGames/CharacterDectector.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/MiniGames/Runner/RunnerMiniGame.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/MiniGames/FishingMiniGame.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Levels/Board.cs" Line="219" Column="66" />
+      <File FileName="Assets/Scripts/Scenes/TakeFinishRunner.cs" Line="18" Column="30" />
+      <File FileName="Assets/Scripts/Scenes/TakeFinishJungle.cs" Line="25" Column="12" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

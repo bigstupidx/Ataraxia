@@ -6,6 +6,9 @@ public class LevelLoader : MonoBehaviour
 	public const string MENU = "Main Room";
 	public const string MENU2 = "Main Room Portal 1 Cleared";
 	public const string LEVEL_1 = "Portal 1 - Love";
+
+	public const string CONGRATULATIONS = "Congratulations";
+
 	private const string LOADING_SCREEN = "LoadingScreen";
 	private string currentScene;
 	private string PendingScene

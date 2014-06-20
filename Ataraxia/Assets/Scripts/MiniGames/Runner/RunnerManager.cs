@@ -5,9 +5,11 @@ using System;
 public class RunnerManager : MonoBehaviour 
 {
 	[SerializeField]
-	private float minDistance;
+	private Transform buttonLeft;
 	[SerializeField]
-	private CameraFollowerSmooth camera;
+	private Transform buttonRight;
+	[SerializeField]
+	private float minDistance;
 	[SerializeField]
 	private Character character;
 	[SerializeField]
@@ -45,19 +47,30 @@ public class RunnerManager : MonoBehaviour
 		}
 
 		if (character.Position.y < 3.0F)
-		{
-			this.currentCharacterDetector = null;
 			character.PositionTo(CurrentPath.InitialPoint + (Vector3.up * 3));
-		}
+
+		GetButtonsToDraw ();
 	}
 
-	private void OnGUI ()
+	private void GetButtonsToDraw ()
 	{
-		if(GUI.Button( new Rect (0F,0F,120F,25F),"Move Left") && this.currentCharacterDetector != null && CurrentPath.nextDirection == DirectionToRotate.Left)
-			Move ();
+		if(CurrentPath.nextDirection == DirectionToRotate.Left)
+		{
+			buttonLeft.localScale = Vector3.one;
+			if(this.currentCharacterDetector != null && CurrentPath.nextDirection == DirectionToRotate.Left)
+				Move ();
+		}
+		else
+			buttonLeft.localScale = Vector3.zero;
 
-		if(GUI.Button( new Rect (0F,30F,120F,25F),"Move Right") && this.currentCharacterDetector != null && CurrentPath.nextDirection == DirectionToRotate.Right)
-			Move ();
+		if(CurrentPath.nextDirection == DirectionToRotate.Right)
+		{
+			buttonRight.localScale = Vector3.one;
+			if(this.currentCharacterDetector != null && CurrentPath.nextDirection == DirectionToRotate.Right)
+				Move ();
+		}
+		else
+			buttonRight.localScale = Vector3.zero;
 	}
 
 	private void OnGetAreaToMove (CharacterDectector obj)

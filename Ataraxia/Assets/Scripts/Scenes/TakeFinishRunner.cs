@@ -12,12 +12,17 @@ public class TakeFinishRunner : TakeManagerBase
 	{
 		if(UserData.HasDialogTypeFinished(SceneDialogType.FinishJungle))
 		{
-			bochica.parent = bochicaToPlace;
-			bochica.localPosition = Vector3.zero;
-			character.PositionTo(endPoint.position);
-			character.RestarToIdle ();
+			PositioningCharacters ();
 			base.StartScene ();
 		}
+	}
+
+	private void PositioningCharacters ()
+	{
+		bochica.parent = bochicaToPlace;
+		bochica.localPosition = Vector3.zero;
+		character.PositionTo (endPoint.position);
+		character.RestarToIdle ();
 	}
 
 	protected override void EndScene ()

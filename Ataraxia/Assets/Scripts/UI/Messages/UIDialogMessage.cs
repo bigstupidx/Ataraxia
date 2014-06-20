@@ -16,11 +16,11 @@ public class UIDialogMessage : UIMessageBase,IUIMessage
 
 	public void Show ( DialogDescriptor message , Action onClosed)
 	{
-		base.Show(message);
 		ResetThumbnails ();
 		ShowThumbnail (message);
 		OnAccepted =  onClosed;
 		closeButton.AddInputDelegate( Close );
+		base.Show(message);
 	}
 
 	private void ShowThumbnail (DialogDescriptor message)

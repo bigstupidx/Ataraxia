@@ -16,5 +16,6 @@ public class TakeCrystal : TakeManagerBase
 		UserData.SetDialogTypeFinished(sceneDialogType);
 		CameraManager.Instance.SetDefault ();
 		FinishActivity ();
+		LevelLoader.Instance.LoadScene ( LevelLoader.CONGRATULATIONS);
 	}
 }

@@ -23,6 +23,12 @@ public class DiceController : MonoBehaviour
 
 	private void Update ()
 	{
+		if(Board.Instance.GameState == GameState.Dialog)
+		{
+			myTransform.localScale = Vector3.zero;
+			return;
+		}
+
 		if(Board.Instance.GameState == GameState.StartingTurn)
 			myTransform.localScale = Vector3.one;
 		else

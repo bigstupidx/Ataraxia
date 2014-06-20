@@ -49,7 +49,7 @@ public abstract class MiniGameManagerBase : MonoBehaviour
 
 	protected abstract void StartGame ();
 
-	protected void LoadBoard ()
+	protected virtual void LoadBoard ()
 	{
 		MiniGameState miniGameState = HasWonGame () ? MiniGameState.Won : MiniGameState.Lost;
 		BoardData.Instance.FinishMiniGame (miniGameState);
