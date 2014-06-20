@@ -46,7 +46,24 @@ public abstract class MiniGameManagerBase : MonoBehaviour
 		UIMessage.Instance.OnAccepted = LoadBoard;
 		character.StartLose ();
 	}
+#if UNITY_EDITOR
+	protected void OnGUI ()
+	{
+		if (GUI.Button (new Rect (0F, 0F, 125F, 25F), "Ganar")) 
+		{
+			MiniGameState miniGameState = MiniGameState.Won;
+			BoardData.Instance.FinishMiniGame (miniGameState);
+			LevelLoader.Instance.LoadScene(LevelLoader.LEVEL_1);
+		}
 
+		if (GUI.Button (new Rect (0F, 30F, 125F, 25F), "Perder")) 
+		{
+			MiniGameState miniGameState = MiniGameState.Lost;
+			BoardData.Instance.FinishMiniGame (miniGameState);
+			LevelLoader.Instance.LoadScene(LevelLoader.LEVEL_1);
+		}
+	}
+#endif
 	protected abstract void StartGame ();
 
 	protected virtual void LoadBoard ()

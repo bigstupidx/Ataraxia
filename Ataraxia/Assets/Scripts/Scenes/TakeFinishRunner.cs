@@ -10,11 +10,8 @@ public class TakeFinishRunner : TakeManagerBase
 
 	public void Play ()
 	{
-		if(UserData.HasDialogTypeFinished(SceneDialogType.FinishJungle))
-		{
-			PositioningCharacters ();
-			base.StartScene ();
-		}
+		PositioningCharacters ();
+		base.StartScene ();
 	}
 
 	private void PositioningCharacters ()
