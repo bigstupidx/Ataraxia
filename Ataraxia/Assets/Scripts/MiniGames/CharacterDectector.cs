@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class CharacterDectector : MonoBehaviour 
 {
+	public Action<CharacterDectector> OnTriggerDetection;
 	private Transform myTransform;
 	public Character Character
 	{
@@ -10,7 +12,7 @@ public class CharacterDectector : MonoBehaviour
 		private set;
 	}
 
-	public bool CanWatering
+	public bool CanAction
 	{
 		get;
 		private set;
@@ -30,13 +32,19 @@ public class CharacterDectector : MonoBehaviour
 	{
 		Character = obj.GetComponent<Character> ();
 		if(Character != null)
-			CanWatering = true;
+			CanAction = true;
+
+		if(OnTriggerDetection != null)
+			OnTriggerDetection(this);
 	}
 
 	private void OnTriggerExit(Collider obj)
 	{
 		Character = obj.GetComponent<Character> ();
 		if(Character != null)
-			CanWatering = false;
+			CanAction = false;
+
+		if(OnTriggerDetection != null)
+			OnTriggerDetection = null;
 	} 
 }
