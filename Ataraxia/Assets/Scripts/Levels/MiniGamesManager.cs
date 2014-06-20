@@ -42,9 +42,8 @@ public class MiniGamesManager
 		}
 		else if(CurrentMiniGame.state == MiniGameState.Won)
 		{
+			callback ();
 			character.StartCelebration ();
-			UIMessage.Instance.Show(CurrentMiniGame.messageReward);
-			UIMessage.Instance.OnAccepted = callback;
 		}
 	}
 
