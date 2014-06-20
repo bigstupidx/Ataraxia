@@ -123,7 +123,7 @@ public class Board : MonoBehaviour
 
 	public void GoBackward (int range , Square square)
 	{
-		character.PositionTo(square.Position - (Vector3.up));
+		character.PositionTo(square.Position + (Vector3.up*4.5F));
 		currentIndexSquare -= range;
 		gameState = GameState.EndTurn;
 	}
@@ -140,7 +140,7 @@ public class Board : MonoBehaviour
 	private void Update()
 	{
 		dice.UpdateGameState (gameState);
-		dice.Position (character.Position + (Vector3.up * 3));
+		dice.Position (character.Position + (Vector3.up * 3.0F));
 		if(miniGamesManager.CurrentMiniGame == null )
 			BoardData ();
 		else if(gameState == GameState.GiveRewards)
@@ -215,7 +215,7 @@ public class Board : MonoBehaviour
 	{
 		int moveSteps = dice.Value;
 		bool isBiggerThanCount = currentIndexSquare + moveSteps > squares.Count;
-		int maxRange = isBiggerThanCount ? squares.Count : moveSteps;
+		int maxRange = isBiggerThanCount ? squares.Count-1 : moveSteps;
 		squaresToSteps = GetSquareRange (currentIndexSquare, maxRange);
 		SetCurrentSquare (moveSteps, isBiggerThanCount);
 		this.gameState = GameState.MovingTurn;
