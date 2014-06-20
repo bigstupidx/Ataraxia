@@ -85,7 +85,8 @@ public class Character : MonoBehaviour
 	public void StartLose ()
 	{
 		Animation anim = animationManager.Play( AnimationManager.LOSE);
-		Invoke(Helpers.NameOf(RestarToIdle), anim[AnimationManager.LOSE].length);
+		if(anim != null && anim[AnimationManager.LOSE] != null)
+			Invoke(Helpers.NameOf(RestarToIdle), anim[AnimationManager.LOSE].length);
 	}
 
 	public void Watering ()
