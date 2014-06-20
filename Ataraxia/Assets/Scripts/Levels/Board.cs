@@ -214,9 +214,13 @@ public class Board : MonoBehaviour
 	private void InitMoves ()
 	{
 		int moveSteps = dice.Value;
+		Debug.Log ( moveSteps +" : "+ dice.Value);
 		bool isBiggerThanCount = currentIndexSquare + moveSteps > squares.Count;
-		int maxRange = isBiggerThanCount ? squares.Count-1 : moveSteps;
+		Debug.Log ( isBiggerThanCount +" ===  "+ dice.Value);
+		int maxRange = isBiggerThanCount ? squares.Count-currentIndexSquare : moveSteps;
+		Debug.Log ( currentIndexSquare +" : max range "+ maxRange);
 		squaresToSteps = GetSquareRange (currentIndexSquare, maxRange);
+		Debug.Log ( currentIndexSquare +" : gfjsdf "+ maxRange);
 		SetCurrentSquare (moveSteps, isBiggerThanCount);
 		this.gameState = GameState.MovingTurn;
 	}
