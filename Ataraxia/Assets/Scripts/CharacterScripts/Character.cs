@@ -53,10 +53,21 @@ public class Character : MonoBehaviour
 		Animation anim = animationManager.Play( AnimationManager.CELEBRATION);
 	}
 
+	public void StartRunning ()
+	{
+		Animation anim = animationManager.Play( AnimationManager.RUN);
+	}
+
 	public void Catch ()
 	{
 		Animation anim = animationManager.Play( AnimationManager.CATCH);
 		Invoke(Helpers.NameOf(RestartToIdleFishing), anim[AnimationManager.CATCH].length);
+	}
+
+	public void HitDice ()
+	{
+		Animation anim = animationManager.Play( AnimationManager.JUMP_DICE);
+		Invoke(Helpers.NameOf(RestartToIdleFishing), anim[AnimationManager.JUMP_DICE].length);
 	}
 
 	private void RestartToIdleFishing ()

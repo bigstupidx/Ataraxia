@@ -7,6 +7,10 @@ public class TakeFinishJungle : TakeManagerBase
 	private Character character;
 	[SerializeField]
 	private Transform endPoint;
+	[SerializeField]
+	private Transform bochicaPosition;
+	[SerializeField]
+	private Transform bochica;
 
 	private void Start ()
 	{
@@ -16,6 +20,8 @@ public class TakeFinishJungle : TakeManagerBase
 
 	public void Play ()
 	{
+		bochica.parent = bochicaPosition;
+		bochica.localPosition = Vector3.zero;
 		character.PositionTo(endPoint.position);
 		character.RestarToIdle ();
 		base.StartScene ();

@@ -32,11 +32,6 @@ public class DiceController : MonoBehaviour
 	private void MoveCharacter ()
 	{
 		dice.Stop ();
-		Invoke (Helpers.NameOf (StartMovingCharacter), 1F);
-	}
-
-	private void StartMovingCharacter ()
-	{
 		Board.Instance.StartMovingCharacter ();
 	}
 }

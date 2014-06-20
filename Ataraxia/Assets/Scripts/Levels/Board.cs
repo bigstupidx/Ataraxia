@@ -123,7 +123,7 @@ public class Board : MonoBehaviour
 
 	public void GoBackward (int range , Square square)
 	{
-		character.PositionTo(square.Position + (Vector3.up));
+		character.PositionTo(square.Position - (Vector3.up));
 		currentIndexSquare -= range;
 		gameState = GameState.EndTurn;
 	}
@@ -206,6 +206,12 @@ public class Board : MonoBehaviour
 	}
 
 	private void GetStepsToMove ()
+	{
+		character.HitDice ();
+		Invoke (Helpers.NameOf (InitMoves), 1F);
+	}
+
+	private void InitMoves ()
 	{
 		int moveSteps = dice.Value;
 		bool isBiggerThanCount = currentIndexSquare + moveSteps > squares.Count;

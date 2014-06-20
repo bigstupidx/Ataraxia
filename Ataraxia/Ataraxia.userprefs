@@ -1,8 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Levels/Board.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/MiniGames/RunnerMiniGame.cs">
     <Files>
-      <File FileName="Assets/Scripts/Levels/Board.cs" Line="204" Column="9" />
+      <File FileName="Assets/Scripts/MiniGames/RunnerMiniGame.cs" Line="22" Column="8" />
+      <File FileName="Assets/Scripts/MiniGames/PlantMiniGame.cs" Line="24" Column="29" />
+      <File FileName="Assets/Scripts/Levels/SquareMoveBackwards.cs" Line="16" Column="22" />
+      <File FileName="Assets/Scripts/Levels/Board.cs" Line="126" Column="41" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

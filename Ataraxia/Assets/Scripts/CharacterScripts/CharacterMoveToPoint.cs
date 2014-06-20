@@ -4,6 +4,8 @@ using System.Collections;
 public class CharacterMoveToPoint : CharacterBehaviour
 {
 	[SerializeField]
+	private bool moveRunning;
+	[SerializeField]
 	private Transform myTransform;
 	[SerializeField]
 	private float velocity = 20f;
@@ -57,12 +59,20 @@ public class CharacterMoveToPoint : CharacterBehaviour
 	{
 		if (!HasArrivedToTargetPoint)
 		{
-			animationManager.Play(AnimationManager.WALK);
+			PlayAnimationMove ();
 			LookAt (direction);
 			characterController.SimpleMove (direction * velocity);
 		}
 		else 
 			animationManager.Play(AnimationManager.IDLE);
+	}
+
+	private void PlayAnimationMove ()
+	{
+		if(!moveRunning)
+			animationManager.Play (AnimationManager.WALK);
+		else
+			animationManager.Play (AnimationManager.RUN);
 	}
 
 	public void LookAt (Vector3 lookAtPosition)
