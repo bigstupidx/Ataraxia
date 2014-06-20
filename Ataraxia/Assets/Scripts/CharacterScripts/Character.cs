@@ -104,6 +104,11 @@ public class Character : MonoBehaviour
 		animationManager.Play(AnimationManager.IDLE);
 	}
 
+	public float GetDistance (Vector3 other)
+	{
+		return Vector3.Distance (Position,other);
+	}
+
 	public float GetDistance (Square square)
 	{
 		return Vector3.Distance (Position,square.Position);

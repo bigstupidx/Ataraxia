@@ -125,7 +125,7 @@ public class Plant : MonoBehaviour
 
 	private void TryToGetWatering ()
 	{
-		if (characterDetector.CanWatering)
+		if (characterDetector.CanAction)
 			Recovery ();
 		else if(GetWateringPosition != null)
 			GetWateringPosition( characterDetector.Position,this );
