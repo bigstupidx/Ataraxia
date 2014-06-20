@@ -7,7 +7,7 @@ public class Board : MonoBehaviour
 	[SerializeField]
 	private TakeStartJungle jungleStart;
 	[SerializeField]
-	private TakeFinishJungle finishJungle;
+	private TakeFinishRunner finishJungle;
 	[SerializeField]
 	private float minDistanceLastSquare = 1.51F;
 	[SerializeField]

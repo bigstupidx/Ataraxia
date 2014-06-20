@@ -7,13 +7,15 @@ public class TakeFinishRunner : TakeManagerBase
 	public Transform endPoint;
 	public Transform bochicaToPlace;
 	public Transform bochica;
-	private void Start ()
+
+	public void Play ()
 	{
 		if(UserData.HasDialogTypeFinished(SceneDialogType.FinishJungle))
 		{
 			bochica.parent = bochicaToPlace;
 			bochica.localPosition = Vector3.zero;
 			character.PositionTo(endPoint.position);
+			character.RestarToIdle ();
 			base.StartScene ();
 		}
 	}
