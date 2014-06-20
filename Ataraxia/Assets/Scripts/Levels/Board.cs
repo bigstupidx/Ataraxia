@@ -5,6 +5,8 @@ using System.Collections.Generic;
 public class Board : MonoBehaviour 
 {
 	[SerializeField]
+	private TakeStartJungle jungleStart;
+	[SerializeField]
 	private TakeFinishJungle finishJungle;
 	[SerializeField]
 	private float minDistanceLastSquare = 1.51F;
@@ -25,6 +27,12 @@ public class Board : MonoBehaviour
 	private int currentIndexSquare = 0;
 	private List<Square> squaresToSteps;
 	private GameState gameState = GameState.StartingTurn;
+
+
+	public bool IsSpecialEvent 
+	{
+		get {return miniGamesManager.CurrentMiniGame != null || gameState == GameState.Dialog;} 
+	}
 
 	public MiniGamesManager MiniGamesManager
 	{
@@ -56,8 +64,16 @@ public class Board : MonoBehaviour
 
 	private void Start ()
 	{
+		if(jungleStart.gameObject.activeSelf)
+			Initialize ();
+		else
+			StartGame ();
+	}
+
+	private void Initialize ()
+	{
 		BoardData boardData = FindObjectOfType<BoardData> ();
-		if(boardData != null)
+		if (boardData != null) 
 		{
 			StartGame ();
 			GetBoardData (boardData);
@@ -69,17 +85,7 @@ public class Board : MonoBehaviour
 	public void StartGame ()
 	{
 		gameState = GameState.StartingTurn;
-		squares = GetSquares ();
 		dice.Throw ();
-	}
-
-	private List<Square> GetSquares ()
-	{
-		List<Square> squaresList = new List<Square>();
-		Square [] squaresArray = squaresContaner.GetComponentsInChildren<Square> ();
-		foreach(Square square in squaresArray)
-			squaresList.Add(square);
-		return squaresList;
 	}
 
 	private void GetBoardData (BoardData boardData)
@@ -193,29 +199,17 @@ public class Board : MonoBehaviour
 		}
 	}
 
-	private void OnGUI ()
+	public void StartMovingCharacter ()
 	{
-		if(miniGamesManager.CurrentMiniGame != null || gameState == GameState.Dialog)
-			return;
-
-		if(GUI.Button(new Rect(0F,0F,150F,25F),"Throw Dice"))
-		{
-			dice.Show ();
-			dice.Throw ();
-		}
-
-		if(GUI.Button(new Rect(0F,50F,150F,25F),"Stop Dice"))
-		{
-			dice.Stop ();
-			Invoke (Helpers.NameOf (StartMovingCharacter), 1F);
-		}
+		if(gameState == GameState.StartingTurn)
+			GetStepsToMove ();
 	}
 
-	private void StartMovingCharacter ()
+	private void GetStepsToMove ()
 	{
 		int moveSteps = dice.Value;
-		bool isBiggerThanCount = currentIndexSquare+moveSteps > squares.Count;
-		int maxRange =  isBiggerThanCount? squares.Count : moveSteps ; 
+		bool isBiggerThanCount = currentIndexSquare + moveSteps > squares.Count;
+		int maxRange = isBiggerThanCount ? squares.Count : moveSteps;
 		squaresToSteps = GetSquareRange (currentIndexSquare, maxRange);
 		SetCurrentSquare (moveSteps, isBiggerThanCount);
 		this.gameState = GameState.MovingTurn;
